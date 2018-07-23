@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.application.limitless.sourav.showcaseprojects"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+   /* productFlavors
+            {
+                showcaseing1
+                        {
+                            applicationId "com.application.limitless.sourav.showcase1"
+                            versionName "1.0-showcase1"
+                            buildConfigField "boolean", "VISIT", "false"
+                        }
+                showcaseing2
+                        {
+                            applicationId "com.application.limitless.sourav.showcase2"
+                            versionName "1.0-showcase2"
+                            buildConfigField "boolean", "VISIT", "true"
+
+                        }
+
+                showcaseing3
+                        {
+                            applicationId "com.application.limitless.sourav.showcase3"
+                            versionName "1.0-showcase3"
+                            buildConfigField "boolean", "VISIT", "true"
+
+                        }
+
+            }*/
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
+    implementation 'com.android.support:design:28.0.0-alpha3'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'io.reactivex:rxjava:1.2.10'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
