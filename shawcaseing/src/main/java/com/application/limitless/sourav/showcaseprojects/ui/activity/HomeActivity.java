@@ -224,7 +224,7 @@ public class HomeActivity extends AppCompatActivity {
         TextView headText = new TextView(this);
 //        headText.setPadding(dpToPixel(10f), dpToPixel(8f), dpToPixel(10f), dpToPixel(8f));
         headText.setPadding(0, 0, 18 * 2, 0);
-        headText.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        headText.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT,1));
         headText.setGravity(Gravity.CENTER);
         headText.setText("Home");
         headText.setMaxLines(1);
@@ -235,7 +235,7 @@ public class HomeActivity extends AppCompatActivity {
 //        headText.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_hamburger), null, null, null);
 
         SearchView searchView = new SearchView(this);
-        searchView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
+        searchView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         searchView.setPadding(dpToPixel(10), dpToPixel(10), dpToPixel(10), dpToPixel(10));
 
 
