@@ -48,7 +48,7 @@ public class CardInfo2Adapter extends RecyclerView.Adapter<CardInfo2Adapter.Card
         shadowRectLayout.setImgGradientColor2(0xDE57CA4A);
         shadowRectLayout.setResDrawable(R.drawable.metting_img);
         shadowRectLayout.setShadowRadius(30);
-        shadowRectLayout.setRoundCornerRadius(15);
+        shadowRectLayout.setRoundCornerRadius(30);
         shadowRectLayout.setShadowColor(0xDE057912);
 
 

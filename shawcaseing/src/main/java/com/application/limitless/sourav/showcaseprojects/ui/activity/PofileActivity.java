@@ -121,12 +121,12 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
 //        linearLayout.setPadding(0, 80, 0, 30);
 
         ImageView imageRounded = new ImageView(this);
-        imageRounded.setLayoutParams(new LinearLayout.LayoutParams(getScreenWidth() / 3, getScreenWidth() / 3));
+        imageRounded.setLayoutParams(new LinearLayout.LayoutParams((int) (getScreenWidth() *0.3), (int) (getScreenWidth() *0.3)));
         imageRounded.setImageResource(R.drawable.profile_man);
 
         ShadowRectLayout shadowRectLayout1=new ShadowRectLayout(this);
         shadowRectLayout1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        shadowRectLayout1.setRoundCornerRadius(getScreenWidth() / 3);
+        shadowRectLayout1.setRoundCornerRadius((int) (getScreenWidth() *0.3));
         shadowRectLayout1.addView(imageRounded);
         shadowRectLayout1.setOffSetY(5);
         shadowRectLayout1.setShadowColor(Color.GRAY);
@@ -166,7 +166,7 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
     private LinearLayout setLabeledHeader(RecyclerView.Adapter adapter, String sLable, int lableId, int drawableLeft, int drawableRight) {
         LinearLayout linearLayout = new LinearLayout(this);
         LinearLayout.LayoutParams linearLayoutParam=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        linearLayoutParam.setMargins(0,10,0,0);
+//        linearLayoutParam.setMargins(0,10,0,0);
         linearLayout.setLayoutParams(linearLayoutParam);
 //        linearLayout.setPadding(0, 0, 0, 30);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
@@ -188,7 +188,7 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         RecyclerView recyclerView = new RecyclerView(this);
 
         LinearLayout.LayoutParams recyclerViewParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        recyclerViewParam.setMargins(0, 0, 0, 30);
+//        recyclerViewParam.setMargins(0, 0, 0, 30);
         recyclerView.setLayoutParams(recyclerViewParam);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);

@@ -40,7 +40,7 @@ public class CardInfo0Adapter extends RecyclerView.Adapter<CardInfo0Adapter.Card
         shadowRectLayout.setImgGradientColor2(0xD6DE39C2);
         shadowRectLayout.setResDrawable(R.drawable.metting_img);
         shadowRectLayout.setShadowRadius(30);
-        shadowRectLayout.setRoundCornerRadius(15);
+        shadowRectLayout.setRoundCornerRadius(30);
         shadowRectLayout.setShadowColor(0xD6DE39C2);
 
 //        shadowRectLayout.setPreventCornerOverlap(false);
@@ -92,7 +92,7 @@ public class CardInfo0Adapter extends RecyclerView.Adapter<CardInfo0Adapter.Card
 
     @Override
     public int getItemCount() {
-        return 25;
+        return 15;
     }
 
     class CardData extends RecyclerView.ViewHolder {
