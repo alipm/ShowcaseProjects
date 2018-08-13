@@ -1,5 +1,6 @@
 package com.application.limitless.sourav.showcaseprojects.ui.activity;
 
+import android.app.UiAutomation;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.application.limitless.sourav.showcaseprojects.R;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.ProfileGridAdapter;
@@ -75,7 +77,7 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         TextView headText = new TextView(this);
 //        headText.setPadding(dpToPixel(10f), dpToPixel(8f), dpToPixel(10f), dpToPixel(8f));
         headText.setPadding(0, 0, 18 * 2, 0);
-        headText.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        headText.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT,1));
         headText.setGravity(Gravity.CENTER);
         headText.setText("Profile");
         headText.setMaxLines(1);
@@ -85,14 +87,18 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         headText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 //        headText.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_hamburger), null, null, null);
 
-        SearchView searchView = new SearchView(this);
-        searchView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
-        searchView.setPadding(dpToPixel(10), dpToPixel(10), dpToPixel(10), dpToPixel(10));
+
+        ImageView editImage= new ImageView(this);
+        editImage.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        editImage.setPadding(dpToPixel(10), dpToPixel(10), dpToPixel(10), dpToPixel(10));
+        editImage.setImageResource(R.drawable.ic_edit_black_24dp);
+        editImage.setId(R.id.edit_icon);
+        editImage.setOnClickListener(this);
 
 
         toobarLayout.addView(imageView);
         toobarLayout.addView(headText);
-        toobarLayout.addView(searchView);
+        toobarLayout.addView(editImage);
         return toobarLayout;
     }
 
@@ -190,7 +196,12 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         LinearLayout.LayoutParams recyclerViewParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 //        recyclerViewParam.setMargins(0, 0, 0, 30);
         recyclerView.setLayoutParams(recyclerViewParam);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        RecyclerView.LayoutManager layoutManager;
+        if (Utils.isTablet(this))
+        layoutManager = new GridLayoutManager(this, 3);
+        else
+        layoutManager = new GridLayoutManager(this, 2);
+
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.setAdapter(adapter);
@@ -208,6 +219,9 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
     {
         if (view.getId()==R.id.back_arrow){
             this.finish();
+        }else
+        if (view.getId()==R.id.edit_icon){
+            Toast.makeText(this, "e d i t", Toast.LENGTH_SHORT).show();
         }
     }
 }

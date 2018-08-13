@@ -54,7 +54,7 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
 //        linearLayout.setPadding(0, 80, 0, 30);
 
         ImageView imageRounded = new ImageView(mContext);
-        imageRounded.setLayoutParams(new LinearLayout.LayoutParams(getScreenWidth() / 4, getScreenWidth() / 4));
+        imageRounded.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(150), Utils.dpToPixel(160)));
         imageRounded.setImageResource(R.drawable.flame);
 
 

@@ -2,6 +2,7 @@ package com.application.limitless.sourav.showcaseprojects.ui.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -85,6 +86,11 @@ public static void darkenStatusBar(Activity activity, int color) {
         return output;
     }
 
+    public static boolean isTablet(Context context) {
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK)
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+    }
     /*public static Drawable drawbg(Context mContext) {
         float radius = 100.0f;
 
