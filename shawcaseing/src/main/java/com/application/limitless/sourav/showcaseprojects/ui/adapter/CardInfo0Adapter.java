@@ -29,12 +29,7 @@ public class CardInfo0Adapter extends RecyclerView.Adapter<CardInfo0Adapter.Card
     @Override
     public CardInfo0Adapter.CardData onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        int radii = Utils.dpToPixel(15);
-//        int radii = 4;
         ShadowRectLayout shadowRectLayout = new ShadowRectLayout(mContext);
-//        shadowRectLayout.setClipToPadding(false);
-//        shadowRectLayout.setClipToOutline(false);
-//        shadowRectLayout.setClipChildren(false);
         shadowRectLayout.setOffSetY(5);
         shadowRectLayout.setImgGradientColor1(0xD89A5FE2);
         shadowRectLayout.setImgGradientColor2(0xD6DE39C2);

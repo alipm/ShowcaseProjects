@@ -279,10 +279,8 @@ public class ShadowRectLayout extends ViewGroup {
             roundGradiantDrawable.setShape(GradientDrawable.LINEAR_GRADIENT);
             roundGradiantDrawable.setCornerRadii(new float[]{fRadius, fRadius, fRadius, fRadius, fRadius, fRadius, fRadius, fRadius});
             if (color1 != -1 && color2 == -1)
-                //                roundGradiantDrawable.setColors(new int[]{color1,0x00FFFFFF});
                 roundGradiantDrawable.setColor(color1);
             else if (color1 == -1 && color2 != -1)
-                //                roundGradiantDrawable.setColors(new int[]{0x00FFFFFF,color2});
                 roundGradiantDrawable.setColor(color2);
             else
                 roundGradiantDrawable.setColors(new int[]{color1, color2});
@@ -311,6 +309,7 @@ public class ShadowRectLayout extends ViewGroup {
 
         return layerdrawable;
     }
+
 
     public void setShadowColor(@ColorInt int color)
     {

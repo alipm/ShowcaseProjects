@@ -54,8 +54,9 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
 //        linearLayout.setPadding(0, 80, 0, 30);
 
         ImageView imageRounded = new ImageView(mContext);
-        imageRounded.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(150), Utils.dpToPixel(160)));
+        imageRounded.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(100), Utils.dpToPixel(110)));
         imageRounded.setImageResource(R.drawable.flame);
+        imageRounded.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
 
         TextView tvProfileName = new TextView(mContext);
