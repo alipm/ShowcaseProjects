@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.application.limitless.sourav.showcaseprojects"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -17,40 +17,64 @@ android {
         }
     }
 
-   /* productFlavors
+    flavorDimensions "shaowcase"
+
+    productFlavors
             {
                 showcaseing1
                         {
+                            dimension "shaowcase"
                             applicationId "com.application.limitless.sourav.showcase1"
                             versionName "1.0-showcase1"
-                            buildConfigField "boolean", "VISIT", "false"
+//                             buildConfigField "boolean", "VISIT", "false"
+                            minSdkVersion 19
+                            targetSdkVersion 27
                         }
                 showcaseing2
                         {
+                            dimension "shaowcase"
                             applicationId "com.application.limitless.sourav.showcase2"
                             versionName "1.0-showcase2"
-                            buildConfigField "boolean", "VISIT", "true"
-
+//                             buildConfigField "boolean", "VISIT", "true"
+                            minSdkVersion 19
+                            targetSdkVersion 27
                         }
-
                 showcaseing3
                         {
+                            dimension "shaowcase"
                             applicationId "com.application.limitless.sourav.showcase3"
                             versionName "1.0-showcase3"
-                            buildConfigField "boolean", "VISIT", "true"
-
+//                             buildConfigField "boolean", "VISIT", "true"
+                            minSdkVersion 19
+                            targetSdkVersion 27
                         }
-
-            }*/
+                showcaseing4 {
+                    minSdkVersion 19
+                    applicationId 'com.application.limitless.sourav.showcase4'
+                    targetSdkVersion 27
+                }
+            }
 
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // android default
     implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
     implementation 'com.android.support:design:28.0.0-alpha3'
+    //for reactive programing object aware
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'io.reactivex:rxjava:1.2.10'
+    //dager injection lib
+    implementation 'com.google.dagger:dagger-android:2.15'
+    implementation 'com.google.dagger:dagger-android-support:2.15'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.15'
+    //network calling lib
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    //for debuging
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+    //    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    //    implementation 'com.squareup.okio:okio:1.11.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
