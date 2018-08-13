@@ -124,6 +124,13 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         imageRounded.setLayoutParams(new LinearLayout.LayoutParams(getScreenWidth() / 3, getScreenWidth() / 3));
         imageRounded.setImageResource(R.drawable.profile_man);
 
+        ShadowRectLayout shadowRectLayout1=new ShadowRectLayout(this);
+        shadowRectLayout1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        shadowRectLayout1.setRoundCornerRadius(getScreenWidth() / 3);
+        shadowRectLayout1.addView(imageRounded);
+        shadowRectLayout1.setOffSetY(5);
+        shadowRectLayout1.setShadowColor(Color.GRAY);
+
 
         TextView tvProfileName = new TextView(this);
         tvProfileName.setTypeface(Typeface.DEFAULT_BOLD);
@@ -142,7 +149,7 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         tvsubText.setTextColor(Color.LTGRAY);
 
 
-        linearLayout.addView(imageRounded);
+        linearLayout.addView(shadowRectLayout1);
         linearLayout.addView(tvProfileName);
         linearLayout.addView(tvsubText);
         shadowRectLayout.addView(linearLayout);
