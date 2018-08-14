@@ -13,4 +13,5 @@
     <item name="feature_series" type="id" />
     <item name="back_arrow" type="id" />
     <item name="edit_icon" type="id" />
+    <item name="shadowrectLayout" type="id" />
 </resources>

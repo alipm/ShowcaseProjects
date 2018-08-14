@@ -15,15 +15,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.application.limitless.sourav.showcaseprojects.R;
+import com.application.limitless.sourav.showcaseprojects.modle.dto.CardDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.ShadowRectLayout;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
+import java.util.ArrayList;
+
 
 public class CardInfo1Adapter extends RecyclerView.Adapter<CardInfo1Adapter.CardData> {
-    final Context mContext;
+    private final Context mContext;
+    private ArrayList<CardDataDto> cardDataDto;
 
-    public CardInfo1Adapter(Activity mContext) {
+    public CardInfo1Adapter(Activity mContext, ArrayList<CardDataDto> dtoArrayList) {
         this.mContext = mContext;
+        this.cardDataDto=dtoArrayList;
+
     }
 
     @NonNull
@@ -42,7 +48,9 @@ public class CardInfo1Adapter extends RecyclerView.Adapter<CardInfo1Adapter.Card
         shadowRectLayout.setOffSetY(10);
         shadowRectLayout.setImgGradientColor2(0xD2F47B36);
         shadowRectLayout.setImgGradientColor1(0xDEC9691B);
+        shadowRectLayout.setId(R.id.shadowrectLayout);
         shadowRectLayout.setResDrawable(R.drawable.metting_img);
+        shadowRectLayout.setShadowColorAuto(true);
         shadowRectLayout.setShadowRadius(30);
         shadowRectLayout.setRoundCornerRadius(30);
         shadowRectLayout.setShadowColor(0xDEFF6309);
@@ -92,6 +100,8 @@ public class CardInfo1Adapter extends RecyclerView.Adapter<CardInfo1Adapter.Card
     @Override
     public void onBindViewHolder(@NonNull CardInfo1Adapter.CardData cardData, int i) {
 
+        cardData.shadowRectLayout.setImgGradientColor1(cardDataDto.get((5+i)%8).getiColor1());
+        cardData.shadowRectLayout.setImgGradientColor2(cardDataDto.get((5+i)%8).getiColor2());
     }
 
     @Override
@@ -100,8 +110,11 @@ public class CardInfo1Adapter extends RecyclerView.Adapter<CardInfo1Adapter.Card
     }
 
     class CardData extends RecyclerView.ViewHolder {
-        public CardData(@NonNull View itemView) {
+        ShadowRectLayout shadowRectLayout;
+        public CardData(@NonNull View itemView)
+        {
             super(itemView);
+            shadowRectLayout=itemView.findViewById(R.id.shadowrectLayout);
         }
     }
 

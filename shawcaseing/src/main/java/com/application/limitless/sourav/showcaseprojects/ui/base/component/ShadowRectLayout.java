@@ -52,6 +52,8 @@ public class ShadowRectLayout extends ViewGroup {
     static final float SHADOW_MULTIPLIER = 1.8f;
     private float[] arrFlotCornerRadii;
 
+    boolean shadowColorAuto;
+
     public ShadowRectLayout(Context mContext)
     {
         super(mContext);
@@ -386,6 +388,25 @@ public class ShadowRectLayout extends ViewGroup {
 
     }
 
+    public boolean isShadowColorAuto()
+    {
+        return shadowColorAuto;
+    }
+
+    public void setShadowColorAuto(boolean shadowColorAuto)
+    {
+        if (imgGradientColor1 != -1)
+            setShadowColor(imgGradientColor1);
+        else if (imgGradientColor2 != -1)
+            setShadowColor(imgGradientColor2);
+        else
+            setShadowColor(Color.GRAY);
+        this.shadowColorAuto = shadowColorAuto;
+
+
+    }
+
+
     public int getImgGradientColor1()
     {
         return imgGradientColor1;
@@ -394,7 +415,10 @@ public class ShadowRectLayout extends ViewGroup {
 
     public void setImgGradientColor1(int imgGradientColor1)
     {
+
         this.imgGradientColor1 = imgGradientColor1;
+        if (shadowColorAuto && imgGradientColor1 != -1)
+            this.shadowColor = imgGradientColor1;
         invalidate();
 
     }
@@ -408,6 +432,8 @@ public class ShadowRectLayout extends ViewGroup {
     public void setImgGradientColor2(int imgGradientColor2)
     {
         this.imgGradientColor2 = imgGradientColor2;
+        if (shadowColorAuto && imgGradientColor2 != -1)
+            this.shadowColor = imgGradientColor2;
         invalidate();
     }
 

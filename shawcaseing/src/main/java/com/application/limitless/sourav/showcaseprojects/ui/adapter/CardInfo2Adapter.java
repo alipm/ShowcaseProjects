@@ -16,16 +16,24 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.application.limitless.sourav.showcaseprojects.R;
+import com.application.limitless.sourav.showcaseprojects.modle.dto.CardDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.ShadowRectLayout;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
+import java.util.ArrayList;
+
 
 public class CardInfo2Adapter extends RecyclerView.Adapter<CardInfo2Adapter.CardData> {
-    final Context mContext;
+    private final Context mContext;
+    ArrayList<CardDataDto> cardDataDto;
 
-    public CardInfo2Adapter(Activity mContext) {
+
+    public CardInfo2Adapter(Activity mContext, ArrayList<CardDataDto> dtoArrayList) {
         this.mContext = mContext;
+        this.cardDataDto=dtoArrayList;
+
     }
+
 
     @NonNull
     @Override
@@ -46,7 +54,9 @@ public class CardInfo2Adapter extends RecyclerView.Adapter<CardInfo2Adapter.Card
         shadowRectLayout.setOffSetY(10);
         shadowRectLayout.setImgGradientColor1(0xDE057912);
         shadowRectLayout.setImgGradientColor2(0xDE57CA4A);
+        shadowRectLayout.setId(R.id.shadowrectLayout);
         shadowRectLayout.setResDrawable(R.drawable.metting_img);
+        shadowRectLayout.setShadowColorAuto(true);
         shadowRectLayout.setShadowRadius(30);
         shadowRectLayout.setRoundCornerRadius(30);
         shadowRectLayout.setShadowColor(0xDE057912);
@@ -89,7 +99,6 @@ public class CardInfo2Adapter extends RecyclerView.Adapter<CardInfo2Adapter.Card
         roundLinearLayout.addView(headLable);
         roundLinearLayout.addView(subText);
 //        RoundLinearLayout linearLayout=shadowRectLayout.getRoundLinearLayout();
-
 //        roundLinearLayout.setBackground(Utils.getGradiantDrawable(mContext,radii,0xDE057912, 0xDE57CA4A));
 //        linearLayout.addView(roundLinearLayout);
 
@@ -102,6 +111,8 @@ public class CardInfo2Adapter extends RecyclerView.Adapter<CardInfo2Adapter.Card
     @Override
     public void onBindViewHolder(@NonNull CardInfo2Adapter.CardData cardData, int i) {
 
+        cardData.shadowRectLayout.setImgGradientColor1(cardDataDto.get((2+i)%8).getiColor1());
+        cardData.shadowRectLayout.setImgGradientColor2(cardDataDto.get((2+i)%8).getiColor2());
     }
 
     @Override
@@ -110,8 +121,11 @@ public class CardInfo2Adapter extends RecyclerView.Adapter<CardInfo2Adapter.Card
     }
 
     class CardData extends RecyclerView.ViewHolder {
-        public CardData(@NonNull View itemView) {
+        ShadowRectLayout shadowRectLayout;
+        public CardData(@NonNull View itemView)
+        {
             super(itemView);
+            shadowRectLayout=itemView.findViewById(R.id.shadowrectLayout);
         }
     }
 

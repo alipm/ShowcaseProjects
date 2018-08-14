@@ -14,37 +14,46 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.application.limitless.sourav.showcaseprojects.R;
+import com.application.limitless.sourav.showcaseprojects.modle.dto.CardDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.ShadowRectLayout;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
+
+import java.util.ArrayList;
 
 
 public class CardInfo0Adapter extends RecyclerView.Adapter<CardInfo0Adapter.CardData> {
     final Context mContext;
+    ArrayList<CardDataDto> cardDataDto;
 
-    public CardInfo0Adapter(Activity mContext) {
+    public CardInfo0Adapter(Activity mContext, ArrayList<CardDataDto> cardDataDto)
+    {
         this.mContext = mContext;
+        this.cardDataDto = cardDataDto;
     }
 
     @NonNull
     @Override
-    public CardInfo0Adapter.CardData onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public CardInfo0Adapter.CardData onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
+    {
 
         ShadowRectLayout shadowRectLayout = new ShadowRectLayout(mContext);
         shadowRectLayout.setOffSetY(5);
         shadowRectLayout.setImgGradientColor1(0xD89A5FE2);
         shadowRectLayout.setImgGradientColor2(0xD6DE39C2);
+        shadowRectLayout.setId(R.id.shadowrectLayout);
+        shadowRectLayout.setShadowColorAuto(true);
         shadowRectLayout.setResDrawable(R.drawable.metting_img);
         shadowRectLayout.setShadowRadius(30);
         shadowRectLayout.setRoundCornerRadius(30);
         shadowRectLayout.setShadowColor(0xD6DE39C2);
 
-//        shadowRectLayout.setPreventCornerOverlap(false);
+        //        shadowRectLayout.setPreventCornerOverlap(false);
 
         LinearLayout roundLinearLayout = new LinearLayout(mContext);
         roundLinearLayout.setPadding(Utils.dpToPixel(15), Utils.dpToPixel(25), Utils.dpToPixel(8), Utils.dpToPixel(8));
         roundLinearLayout.setOrientation(LinearLayout.VERTICAL);
 
-        roundLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(250),Utils.dpToPixel(140)));
+        roundLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(250), Utils.dpToPixel(140)));
 
         TextView headLable = new TextView(mContext);
         headLable.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
@@ -73,7 +82,7 @@ public class CardInfo0Adapter extends RecyclerView.Adapter<CardInfo0Adapter.Card
 
         roundLinearLayout.addView(headLable);
         roundLinearLayout.addView(subText);
-//        roundLinearLayout.setBackground(Utils.getGradiantDrawable(mContext,radii,0xD89A5FE2, 0xD6DE39C2));
+        //        roundLinearLayout.setBackground(Utils.getGradiantDrawable(mContext,radii,0xD89A5FE2, 0xD6DE39C2));
         shadowRectLayout.addView(roundLinearLayout);
 
 
@@ -81,18 +90,26 @@ public class CardInfo0Adapter extends RecyclerView.Adapter<CardInfo0Adapter.Card
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CardInfo0Adapter.CardData cardData, int i) {
+    public void onBindViewHolder(@NonNull CardInfo0Adapter.CardData cardData, int i)
+    {
 
+        cardData.shadowRectLayout.setImgGradientColor1(cardDataDto.get(i % 8).getiColor1());
+        cardData.shadowRectLayout.setImgGradientColor2(cardDataDto.get(i % 8).getiColor2());
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return 15;
     }
 
     class CardData extends RecyclerView.ViewHolder {
-        public CardData(@NonNull View itemView) {
+        ShadowRectLayout shadowRectLayout;
+
+        public CardData(@NonNull View itemView)
+        {
             super(itemView);
+            shadowRectLayout = itemView.findViewById(R.id.shadowrectLayout);
         }
     }
 

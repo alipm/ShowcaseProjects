@@ -109,7 +109,7 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         contentLayout.setBackgroundColor(0xfff1f4f9);
         contentLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         ShadowRectLayout shadowRectLayout = new ShadowRectLayout(this);
-        shadowRectLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 600));
+        shadowRectLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         shadowRectLayout.setShadowColor(0xFFBEBEBE);
 
         shadowRectLayout.setOffSetY(20);
