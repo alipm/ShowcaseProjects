@@ -22,13 +22,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.application.limitless.sourav.showcaseprojects.R;
-import com.application.limitless.sourav.showcaseprojects.modle.dto.CLListItem;
 import com.application.limitless.sourav.showcaseprojects.modle.dto.CardDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.CardInfo0Adapter;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.CardInfo1Adapter;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.CardInfo2Adapter;
+import com.application.limitless.sourav.showcaseprojects.ui.utils.StateBackgroundDrawable;
+import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
 import java.util.ArrayList;
 
@@ -37,6 +39,7 @@ import static com.application.limitless.sourav.showcaseprojects.ui.utils.Utils.d
 public class HomeActivity extends AppCompatActivity {
 
     ArrayList<CardDataDto> dtoArrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -75,7 +78,17 @@ public class HomeActivity extends AppCompatActivity {
         navigationViewList.setFitsSystemWindows(true);
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        linearLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        linearLayout.setBackgroundColor(0xFFEEEEEE);
+        linearLayout.setPadding(0, 150, 0, 0);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        String[] naviationOption = new String[]{"H o m e", "P r o f i l e", "S e r i e s", "D o w n l o a d s", "R e c e n t ", "H i s t o r y", "A b o u t  M e", "E x i t"};
+        for (int i = 0; i < naviationOption.length; i++)
+        {
+
+            linearLayout.addView(getNavigationContent(naviationOption[i]));
+        }
+
+
         navigationViewList.addView(linearLayout);
         navigationViewList.setLayoutParams(navigationViewList_param);
         navigationViewList.setNavigationItemSelectedListener(new HomeActivityListener());
@@ -153,29 +166,31 @@ public class HomeActivity extends AppCompatActivity {
         return topboxLinear;
     }
 
+
     private void setUpData()
     {
 
         dtoArrayList = new ArrayList<CardDataDto>();
-        for (int i = 0; i <= 2; i++) {
-         CardDataDto cardDataDto0=new CardDataDto(0xb9f14646,0xfff14646);
-         CardDataDto cardDataDto1=new CardDataDto(0xa854c3d4,0xff54c3d4);
-         CardDataDto cardDataDto2=new CardDataDto(0xb964ca45,0xff64ca45);
-         CardDataDto cardDataDto3=new CardDataDto(0xbd9941a1,0xff9941a1);
-         CardDataDto cardDataDto4=new CardDataDto(0xc4bca93c,0xffbca93c);
-         CardDataDto cardDataDto5=new CardDataDto(0xb75d4ab1,0xff5d4ab1);
-         CardDataDto cardDataDto6=new CardDataDto(0xbf4991af,0xff4991af);
-         CardDataDto cardDataDto7=new CardDataDto(0xbdd1894a,0xffd1894a);
-         CardDataDto cardDataDto8=new CardDataDto(0xc13bab78,0xff3bab78);
-         dtoArrayList.add(cardDataDto0);
-         dtoArrayList.add(cardDataDto1);
-         dtoArrayList.add(cardDataDto2);
-         dtoArrayList.add(cardDataDto3);
-         dtoArrayList.add(cardDataDto4);
-         dtoArrayList.add(cardDataDto5);
-         dtoArrayList.add(cardDataDto6);
-         dtoArrayList.add(cardDataDto7);
-         dtoArrayList.add(cardDataDto8);
+        for (int i = 0; i <= 2; i++)
+        {
+            CardDataDto cardDataDto0 = new CardDataDto(0xb9f14646, 0xfff14646);
+            CardDataDto cardDataDto1 = new CardDataDto(0xa854c3d4, 0xff54c3d4);
+            CardDataDto cardDataDto2 = new CardDataDto(0xb964ca45, 0xff64ca45);
+            CardDataDto cardDataDto3 = new CardDataDto(0xbd9941a1, 0xff9941a1);
+            CardDataDto cardDataDto4 = new CardDataDto(0xc4bca93c, 0xffbca93c);
+            CardDataDto cardDataDto5 = new CardDataDto(0xb75d4ab1, 0xff5d4ab1);
+            CardDataDto cardDataDto6 = new CardDataDto(0xbf4991af, 0xff4991af);
+            CardDataDto cardDataDto7 = new CardDataDto(0xbdd1894a, 0xffd1894a);
+            CardDataDto cardDataDto8 = new CardDataDto(0xc13bab78, 0xff3bab78);
+            dtoArrayList.add(cardDataDto0);
+            dtoArrayList.add(cardDataDto1);
+            dtoArrayList.add(cardDataDto2);
+            dtoArrayList.add(cardDataDto3);
+            dtoArrayList.add(cardDataDto4);
+            dtoArrayList.add(cardDataDto5);
+            dtoArrayList.add(cardDataDto6);
+            dtoArrayList.add(cardDataDto7);
+            dtoArrayList.add(cardDataDto8);
 
         }
     }
@@ -187,8 +202,8 @@ public class HomeActivity extends AppCompatActivity {
         contentLayout.setBackgroundColor(getResources().getColor(R.color.pure_white));
         contentLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         CardInfo0Adapter cardInfoAdapter0 = new CardInfo0Adapter(this, dtoArrayList);
-        CardInfo1Adapter cardInfoAdapter1 = new CardInfo1Adapter(this,dtoArrayList);
-        CardInfo2Adapter cardInfoAdapter2 = new CardInfo2Adapter(this,dtoArrayList);
+        CardInfo1Adapter cardInfoAdapter1 = new CardInfo1Adapter(this, dtoArrayList);
+        CardInfo2Adapter cardInfoAdapter2 = new CardInfo2Adapter(this, dtoArrayList);
         contentLayout.addView(setLabeledHeader(cardInfoAdapter0, "Series", R.id.series, R.drawable.ic_seriese, R.drawable.ic_right_arrow));
         contentLayout.addView(setLabeledHeader(cardInfoAdapter1, "Session", R.id.session, R.drawable.ic_seriese, R.drawable.ic_right_arrow));
         contentLayout.addView(setLabeledHeader(cardInfoAdapter2, "Feature Series", R.id.feature_series, R.drawable.ic_seriese, R.drawable.ic_right_arrow));
@@ -247,7 +262,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                ((DrawerLayout) findViewById(R.id.drawer_layout)).openDrawer(Gravity.LEFT);
+                ((DrawerLayout) findViewById(R.id.drawer_layout)).openDrawer(Gravity.START);
             }
         });
         imageView.setPadding(dpToPixel(10), dpToPixel(10), dpToPixel(10), dpToPixel(10));
@@ -276,6 +291,37 @@ public class HomeActivity extends AppCompatActivity {
         toobarLayout.addView(headText);
         toobarLayout.addView(serchIcon);
         return toobarLayout;
+    }
+
+    public LinearLayout getNavigationContent(final String sLable)
+    {
+
+        final LinearLayout layout = new LinearLayout(this);
+        LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParam.setMargins(0, 5, 0, 5);
+        layout.setLayoutParams(layoutParam);
+        layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Toast.makeText(HomeActivity.this, "" + sLable, Toast.LENGTH_SHORT).show();
+            }
+        });
+        layout.setBackground(Utils.getSelectorDrawable(0x9F9E9E9E));
+        layout.setPadding(0, 20, 0, 20);
+        layout.setGravity(Gravity.CENTER);
+
+        TextView textView = new TextView(this);
+        LinearLayout.LayoutParams textParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        textView.setText(sLable);
+        textView.setAllCaps(true);
+        textView.setTextColor(StateBackgroundDrawable.getColorStateListDrawable(0xFF938C8C,0xFFFFFFFF));
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+//        textView.setTypeface(Typeface.DEFAULT_BOLD);
+        textView.setLayoutParams(textParam);
+        layout.addView(textView);
+
+        return layout;
     }
 
 

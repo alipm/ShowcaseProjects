@@ -165,8 +165,9 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         shadowRectLayout1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         shadowRectLayout1.setRoundCornerRadius((int) (getScreenWidth() *0.3));
         shadowRectLayout1.addView(imageRounded);
-        shadowRectLayout1.setOffSetY(5);
-        shadowRectLayout1.setShadowColor(Color.GRAY);
+        shadowRectLayout1.setOffSetY(10);
+        shadowRectLayout1.setShadowRadius(10);
+        shadowRectLayout1.setShadowColor(Color.LTGRAY);
 
 
         TextView tvProfileName = new TextView(this);
@@ -183,7 +184,7 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         tvsubText.setGravity(Gravity.CENTER);
         tvsubText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
 //        tvsubText.setPadding(0, 0, 15, 0);
-        tvsubText.setTextColor(Color.LTGRAY);
+        tvsubText.setTextColor(getResources().getColor(android.R.color.holo_green_light));
 
 
         linearLayout.addView(shadowRectLayout1);

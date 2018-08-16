@@ -49,6 +49,8 @@ public class ShadowRectLayout extends ViewGroup {
     RoundedBitmapDrawable roundedBitmapDrawable = null;
     LayerDrawable layerdrawable = null;
     GradientDrawable roundGradiantDrawable = null;
+
+
     static final float SHADOW_MULTIPLIER = 1.8f;
     private float[] arrFlotCornerRadii;
 
@@ -326,7 +328,7 @@ public class ShadowRectLayout extends ViewGroup {
         invalidate();
     }
 
-    public double scaleRange(final double valueIn, final double baseMin, final double baseMax, final double limitMin, final double limitMax)
+    private double scaleRange(final double valueIn, final double baseMin, final double baseMax, final double limitMin, final double limitMax)
     {
         return ((limitMax - limitMin) * (valueIn - baseMin) / (baseMax - baseMin)) + limitMin;
     }

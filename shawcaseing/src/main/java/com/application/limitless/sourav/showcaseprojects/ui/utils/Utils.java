@@ -13,10 +13,12 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
@@ -91,6 +93,17 @@ public static void darkenStatusBar(Activity activity, int color) {
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
                 >= Configuration.SCREENLAYOUT_SIZE_LARGE;
     }
+
+
+    public static StateListDrawable getSelectorDrawable(int color) {
+        StateListDrawable res = new StateListDrawable();
+        res.addState(new int[]{android.R.attr.state_pressed}, new ColorDrawable(color));
+        res.addState(new int[]{android.R.attr.state_selected}, new ColorDrawable(color));
+        res.addState(new int[]{android.R.attr.state_activated}, new ColorDrawable(color));
+        res.addState(new int[]{}, new ColorDrawable(Color.TRANSPARENT));
+        return res;
+    }
+
     /*public static Drawable drawbg(Context mContext) {
         float radius = 100.0f;
 
