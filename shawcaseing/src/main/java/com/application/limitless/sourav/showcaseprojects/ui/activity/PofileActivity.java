@@ -21,23 +21,53 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.application.limitless.sourav.showcaseprojects.R;
+import com.application.limitless.sourav.showcaseprojects.modle.dto.CardDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.ProfileGridAdapter;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.ShadowRectLayout;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
+
+import java.util.ArrayList;
 
 import static com.application.limitless.sourav.showcaseprojects.ui.utils.Utils.dpToPixel;
 import static com.application.limitless.sourav.showcaseprojects.ui.utils.Utils.getScreenWidth;
 
 public class PofileActivity extends AppCompatActivity implements View.OnClickListener {
+    ArrayList<CardDataDto> dtoArrayList;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setUpData();
         setContentView(getProfileView());
 
     }
+    private void setUpData()
+    {
 
+        dtoArrayList = new ArrayList<CardDataDto>();
+        for (int i = 0; i <= 2; i++) {
+            CardDataDto cardDataDto0=new CardDataDto(0xb9f14646);
+            CardDataDto cardDataDto1=new CardDataDto(0xa854c3d4);
+            CardDataDto cardDataDto2=new CardDataDto(0xb964ca45);
+            CardDataDto cardDataDto3=new CardDataDto(0xbd9941a1);
+            CardDataDto cardDataDto4=new CardDataDto(0xc4bca93c);
+            CardDataDto cardDataDto5=new CardDataDto(0xb75d4ab1);
+            CardDataDto cardDataDto6=new CardDataDto(0xbf4991af);
+            CardDataDto cardDataDto7=new CardDataDto(0xbdd1894a);
+            CardDataDto cardDataDto8=new CardDataDto(0xc13bab78);
+            dtoArrayList.add(cardDataDto0);
+            dtoArrayList.add(cardDataDto1);
+            dtoArrayList.add(cardDataDto2);
+            dtoArrayList.add(cardDataDto3);
+            dtoArrayList.add(cardDataDto4);
+            dtoArrayList.add(cardDataDto5);
+            dtoArrayList.add(cardDataDto6);
+            dtoArrayList.add(cardDataDto7);
+            dtoArrayList.add(cardDataDto8);
+
+        }
+    }
 
     public View getProfileView() {
         Toolbar toolbar = new Toolbar(this);
@@ -46,8 +76,8 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         toolbar.setLayoutParams(toolbar_param);
         toolbar.setContentInsetStartWithNavigation(0);
         toolbar.setContentInsetsAbsolute(0, 0);
-
         toolbar.addView(getToobarLayout());
+
         LinearLayout clLinearLayout = new LinearLayout(this);
         DrawerLayout.LayoutParams clLinearLayout_param = new DrawerLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         clLinearLayout.setOrientation(LinearLayout.VERTICAL);
@@ -124,7 +154,7 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         linearLayout.setLayoutParams(linearLayoutParam);
         linearLayout.setGravity(Gravity.CENTER_HORIZONTAL);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
-//        linearLayout.setPadding(0, 80, 0, 30);
+        linearLayout.setPadding(0, 0, 0, 50);
 
         ImageView imageRounded = new ImageView(this);
         imageRounded.setLayoutParams(new LinearLayout.LayoutParams((int) (getScreenWidth() *0.3), (int) (getScreenWidth() *0.3)));

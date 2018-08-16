@@ -269,7 +269,7 @@ public class HomeActivity extends AppCompatActivity {
         ImageView serchIcon = new ImageView(this);
         serchIcon.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         serchIcon.setImageResource(R.drawable.ic_search_black_24dp);
-        serchIcon.setPadding(dpToPixel(10), dpToPixel(10), dpToPixel(10), dpToPixel(10));
+        serchIcon.setPadding(dpToPixel(4), dpToPixel(4), dpToPixel(4), dpToPixel(4));
 
 
         toobarLayout.addView(imageView);

@@ -92,9 +92,8 @@ public class CardInfo0Adapter extends RecyclerView.Adapter<CardInfo0Adapter.Card
     @Override
     public void onBindViewHolder(@NonNull CardInfo0Adapter.CardData cardData, int i)
     {
-
-        cardData.shadowRectLayout.setImgGradientColor1(cardDataDto.get(i % 8).getiColor1());
-        cardData.shadowRectLayout.setImgGradientColor2(cardDataDto.get(i % 8).getiColor2());
+        cardData.shadowRectLayout.setImgGradientColor1(cardDataDto.get((i+3) % 8).getiColor1());
+        cardData.shadowRectLayout.setImgGradientColor2(cardDataDto.get((i+3 )% 8).getiColor2());
     }
 
     @Override
