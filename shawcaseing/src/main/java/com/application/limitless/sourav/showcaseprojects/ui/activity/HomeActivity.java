@@ -47,6 +47,8 @@ public class HomeActivity extends AppCompatActivity {
 
         setUpData();
         setContentView(getDrawerView());
+        Utils.setLightStatusBar(this);
+
 
     }
 

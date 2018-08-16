@@ -53,7 +53,6 @@ public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.Adapte
     public void onBindViewHolder(@NonNull AdapterViewHolder adapterViewHolder, int i)
     {
         adapterViewHolder.textView.setText(customerList.get(i).getActivityName());
-
     }
 
 
@@ -79,12 +78,16 @@ public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.Adapte
         @Override
         public void onClick(View view)
         {
-            if (getLayoutPosition()==0||getAdapterPosition()==0){
-                Intent intent
-                        =new Intent( clContext, HomeActivity.class);
+            if (getLayoutPosition() == 0 || getAdapterPosition() == 0)
+            {
+                Intent intent = new Intent(clContext, HomeActivity.class);
                 clContext.startActivity(intent);
-            }
-            Toast.makeText(clContext, customerList.get(getLayoutPosition()).getActivityName(), Toast.LENGTH_SHORT).show();
+            } else if (getLayoutPosition() == 1 || getAdapterPosition() == 1)
+            {
+                Intent intent = new Intent(clContext, HomeActivity.class);
+                clContext.startActivity(intent);
+            } else
+                Toast.makeText(clContext, customerList.get(getLayoutPosition()).getActivityName(), Toast.LENGTH_SHORT).show();
 
 
         }
@@ -128,17 +131,17 @@ public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.Adapte
         clVisittxt.setGravity(Gravity.CENTER);
         //        clVisittxt.setTextColor(clContext.getResources().getColor(R.color.green_light));
         clVisittxt.setTextColor(getColorStateListDrawable(clContext.getResources().getColor(R.color.green_basic), Color.WHITE));
-        clVisittxt.setText("Visit");
+        clVisittxt.setText("Visit   ");
 
 
         final ImageView imgArrow = new ImageView(clContext);
 
-        ViewGroup.LayoutParams imgArrowParam = new LinearLayout.LayoutParams(80, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ViewGroup.LayoutParams imgArrowParam = new LinearLayout.LayoutParams(100, ViewGroup.LayoutParams.WRAP_CONTENT);
         imgArrow.setBackground(clContext.getResources().getDrawable(R.drawable.visit_arrow));
         imgArrow.setLayoutParams(imgArrowParam);
         imgArrow.setId(R.id.arrow_key);
         imgArrow.setImageDrawable(getDrawableListState(R.drawable.right_arrow_green, R.drawable.right_arrow_white));
-        imgArrow.setPadding(8, 8, 8, 8);
+        imgArrow.setPadding(8, 12, 8, 12);
         imgArrow.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         //        imgArrow.setImageDrawable();
 

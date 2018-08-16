@@ -25,6 +25,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.DisplayMetrics;
+import android.view.View;
 
 import com.application.limitless.sourav.showcaseprojects.R;
 
@@ -102,6 +103,24 @@ public static void darkenStatusBar(Activity activity, int color) {
         res.addState(new int[]{android.R.attr.state_activated}, new ColorDrawable(color));
         res.addState(new int[]{}, new ColorDrawable(Color.TRANSPARENT));
         return res;
+    }
+
+    public static void setLightStatusBar(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int flags = activity.getWindow().getDecorView().getSystemUiVisibility(); // get current flag
+            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;   // add LIGHT_STATUS_BAR to flag
+            activity.getWindow().getDecorView().setSystemUiVisibility(flags);
+            activity.getWindow().setStatusBarColor(Color.GRAY); // optional
+        }
+    }
+
+    public static void clearLightStatusBar(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int flags = activity.getWindow().getDecorView().getSystemUiVisibility(); // get current flag
+            flags = flags ^ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR; // use XOR here for remove LIGHT_STATUS_BAR from flags
+            activity.getWindow().getDecorView().setSystemUiVisibility(flags);
+            activity.getWindow().setStatusBarColor(Color.GREEN); // optional
+        }
     }
 
     /*public static Drawable drawbg(Context mContext) {

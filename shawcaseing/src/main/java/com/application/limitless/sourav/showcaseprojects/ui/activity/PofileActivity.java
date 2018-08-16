@@ -1,8 +1,10 @@
 package com.application.limitless.sourav.showcaseprojects.ui.activity;
 
+import android.app.Activity;
 import android.app.UiAutomation;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
@@ -41,7 +43,20 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setUpData();
         setContentView(getProfileView());
+        Utils.setLightStatusBar(this);
 
+
+    }
+    public void setLightStatusBar(View view,Activity activity){
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+            int flags = view.getSystemUiVisibility();
+            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            view.setSystemUiVisibility(flags);
+            activity.getWindow().setStatusBarColor(Color.WHITE);
+        }
     }
     private void setUpData()
     {
