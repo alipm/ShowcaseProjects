@@ -15,16 +15,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.application.limitless.sourav.showcaseprojects.R;
+import com.application.limitless.sourav.showcaseprojects.modle.dto.CardDataDto;
+import com.application.limitless.sourav.showcaseprojects.modle.dto.ProfileDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.ShadowRectLayout;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
+
+import java.util.ArrayList;
 
 import static com.application.limitless.sourav.showcaseprojects.ui.utils.Utils.getScreenWidth;
 
 public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.CardData> {
     final Context mContext;
+    private final ArrayList<ProfileDataDto> profileDataDtos;
 
-    public ProfileGridAdapter(Activity mContext) {
+    public ProfileGridAdapter(Activity mContext, ArrayList<ProfileDataDto> profileDataDtos) {
         this.mContext = mContext;
+        this.profileDataDtos = profileDataDtos;
+
     }
 
     @NonNull
@@ -34,16 +41,13 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
         int radii = Utils.dpToPixel(15);
 //        int radii = 4;
         ShadowRectLayout shadowRectLayout = new ShadowRectLayout(mContext);
-//        shadowRectLayout.setClipToPadding(false);
-//        shadowRectLayout.setClipToOutline(false);
-//        shadowRectLayout.setClipChildren(false);
         shadowRectLayout.setOffSetY(10);
-//        shadowRectLayout.setImgGradientColor2(0xD2F47B36);
-//        shadowRectLayout.setImgGradientColor1(0xDEC9691B);
-//        shadowRectLayout.setResDrawable(R.drawable.metting_img);
         shadowRectLayout.setShadowRadius(25);
+        shadowRectLayout.setId(R.id.shadowrectLayout);
         shadowRectLayout.setRoundCornerRadius(20);
         shadowRectLayout.setShadowColor(0xFFBEBEBE);
+
+
 
         LinearLayout linearLayout = new LinearLayout(mContext);
         LinearLayout.LayoutParams linearLayoutParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -55,7 +59,8 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
 
         ImageView imageRounded = new ImageView(mContext);
         imageRounded.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(100), Utils.dpToPixel(110)));
-        imageRounded.setImageResource(R.drawable.flame);
+        imageRounded.setId(R.id.card_imageview);
+//        imageRounded.setImageResource(R.drawable.flame);
         imageRounded.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
 
@@ -73,7 +78,7 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
         tvsubText.setGravity(Gravity.CENTER);
         tvsubText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
 //        tvsubText.setPadding(0, 0, 15, 0);
-        tvsubText.setTextColor(Color.LTGRAY);
+        tvsubText.setTextColor(Color.GRAY);
 
 
         linearLayout.addView(imageRounded);
@@ -87,6 +92,10 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ProfileGridAdapter.CardData cardData, int i) {
+        cardData.shadowRectLayout.setImgGradientColor1(profileDataDtos.get(i%8).getiColor2());
+//        cardData.shadowRectLayout.setImgGradientColor2(cardDataDtos.get(i%8).getiColor3());
+        cardData.shadowRectLayout.setImgGradientColor2(0x00000000);
+        cardData.imageView.setImageResource(profileDataDtos.get(i%8).getIconResouce());
 
     }
 
@@ -96,8 +105,12 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
     }
 
     class CardData extends RecyclerView.ViewHolder {
+        ShadowRectLayout shadowRectLayout;
+        ImageView  imageView;
         public CardData(@NonNull View itemView) {
             super(itemView);
+            shadowRectLayout=itemView.findViewById(R.id.shadowrectLayout);
+            imageView=itemView.findViewById(R.id.card_imageview);
         }
     }
 

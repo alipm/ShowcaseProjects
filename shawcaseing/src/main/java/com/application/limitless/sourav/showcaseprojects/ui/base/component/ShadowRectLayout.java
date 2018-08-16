@@ -315,6 +315,7 @@ public class ShadowRectLayout extends ViewGroup {
 
     public void setShadowColor(@ColorInt int color)
     {
+        this.shadowColorAuto=false;
         this.shadowColor = color;
         invalidate();
     }

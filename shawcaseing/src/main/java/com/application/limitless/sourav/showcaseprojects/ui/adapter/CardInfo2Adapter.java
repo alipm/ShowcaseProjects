@@ -56,7 +56,7 @@ public class CardInfo2Adapter extends RecyclerView.Adapter<CardInfo2Adapter.Card
         shadowRectLayout.setImgGradientColor2(0xDE57CA4A);
         shadowRectLayout.setId(R.id.shadowrectLayout);
         shadowRectLayout.setResDrawable(R.drawable.metting_img);
-        shadowRectLayout.setShadowColorAuto(true);
+//        shadowRectLayout.setShadowColorAuto(true);
         shadowRectLayout.setShadowRadius(30);
         shadowRectLayout.setRoundCornerRadius(30);
         shadowRectLayout.setShadowColor(0xDE057912);
@@ -113,6 +113,7 @@ public class CardInfo2Adapter extends RecyclerView.Adapter<CardInfo2Adapter.Card
 
         cardData.shadowRectLayout.setImgGradientColor1(cardDataDto.get((2+i)%8).getiColor1());
         cardData.shadowRectLayout.setImgGradientColor2(cardDataDto.get((2+i)%8).getiColor2());
+        cardData.shadowRectLayout.setShadowColor(cardDataDto.get((i+2 )% 8).getiColor3());
     }
 
     @Override

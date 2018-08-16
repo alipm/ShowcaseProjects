@@ -158,15 +158,15 @@ public class HomeActivity extends AppCompatActivity {
 
         dtoArrayList = new ArrayList<CardDataDto>();
         for (int i = 0; i <= 2; i++) {
-         CardDataDto cardDataDto0=new CardDataDto(0xb9f14646);
-         CardDataDto cardDataDto1=new CardDataDto(0xa854c3d4);
-         CardDataDto cardDataDto2=new CardDataDto(0xb964ca45);
-         CardDataDto cardDataDto3=new CardDataDto(0xbd9941a1);
-         CardDataDto cardDataDto4=new CardDataDto(0xc4bca93c);
-         CardDataDto cardDataDto5=new CardDataDto(0xb75d4ab1);
-         CardDataDto cardDataDto6=new CardDataDto(0xbf4991af);
-         CardDataDto cardDataDto7=new CardDataDto(0xbdd1894a);
-         CardDataDto cardDataDto8=new CardDataDto(0xc13bab78);
+         CardDataDto cardDataDto0=new CardDataDto(0xb9f14646,0xfff14646);
+         CardDataDto cardDataDto1=new CardDataDto(0xa854c3d4,0xff54c3d4);
+         CardDataDto cardDataDto2=new CardDataDto(0xb964ca45,0xff64ca45);
+         CardDataDto cardDataDto3=new CardDataDto(0xbd9941a1,0xff9941a1);
+         CardDataDto cardDataDto4=new CardDataDto(0xc4bca93c,0xffbca93c);
+         CardDataDto cardDataDto5=new CardDataDto(0xb75d4ab1,0xff5d4ab1);
+         CardDataDto cardDataDto6=new CardDataDto(0xbf4991af,0xff4991af);
+         CardDataDto cardDataDto7=new CardDataDto(0xbdd1894a,0xffd1894a);
+         CardDataDto cardDataDto8=new CardDataDto(0xc13bab78,0xff3bab78);
          dtoArrayList.add(cardDataDto0);
          dtoArrayList.add(cardDataDto1);
          dtoArrayList.add(cardDataDto2);

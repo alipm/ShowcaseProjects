@@ -2,29 +2,35 @@ package com.application.limitless.sourav.showcaseprojects.modle.dto;
 
 import android.graphics.Color;
 
-public class CardDataDto {
+public class ProfileDataDto {
 
     private final int iColor1;
     private final int iColor2;
     private final int iColor3;
 
-    public CardDataDto(int iColor2,int iColor3)
+
+    private final int iconResouce;
+
+
+    public ProfileDataDto(int iColor2, int iColor3, int iconResouce)
+
     {
         this.iColor2 = iColor2;
         this.iColor1 = getDarkerColor(iColor2);
-        this.iColor3=iColor3;
+        this.iColor3 = iColor3;
+        this.iconResouce = iconResouce;
 
 
-    }
-
-    public int getiColor3()
-    {
-        return iColor3;
     }
 
     public int getiColor1()
     {
         return iColor1;
+    }
+
+    public int getiColor3()
+    {
+        return iColor3;
     }
 
 
@@ -33,7 +39,10 @@ public class CardDataDto {
         return iColor2;
     }
 
-
+    public int getIconResouce()
+    {
+        return iconResouce;
+    }
 
 
     public int getDarkerColor(int color)
