@@ -198,6 +198,7 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         tvsubText.setText("User Interface Designer");
         tvsubText.setGravity(Gravity.CENTER);
         tvsubText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+        tvsubText.setMinLines(2);
 //        tvsubText.setPadding(0, 0, 15, 0);
         tvsubText.setTextColor(getResources().getColor(android.R.color.holo_green_light));
 

@@ -23,6 +23,7 @@
     <color name="pure_white"> #ffffff</color>
     <color name="text_color">#202020</color>
     <color name="pure_black">#000000</color>
+    <color name="white_300">#aaa5fc</color>
 
     <!---->
 </resources>

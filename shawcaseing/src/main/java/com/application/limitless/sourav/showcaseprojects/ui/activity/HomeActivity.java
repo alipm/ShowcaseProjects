@@ -34,6 +34,8 @@ import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
 import java.util.ArrayList;
 
+import okhttp3.internal.Util;
+
 import static com.application.limitless.sourav.showcaseprojects.ui.utils.Utils.dpToPixel;
 
 public class HomeActivity extends AppCompatActivity {
@@ -80,10 +82,10 @@ public class HomeActivity extends AppCompatActivity {
         navigationViewList.setFitsSystemWindows(true);
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        linearLayout.setBackgroundColor(0xFFEEEEEE);
-        linearLayout.setPadding(0, 150, 0, 0);
+        linearLayout.setBackgroundColor(0xFFFFFFFF);
+        linearLayout.setPadding(0, Utils.dpToPixel(50), 0, 0);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
-        String[] naviationOption = new String[]{"H o m e", "P r o f i l e", "S e r i e s", "D o w n l o a d s", "R e c e n t ", "H i s t o r y", "A b o u t  M e", "E x i t"};
+        String[] naviationOption = new String[]{"Home", "Profile", "Series", "Downloads", "Recent ", "History", "About  Me", "Exit"};
         for (int i = 0; i < naviationOption.length; i++)
         {
 

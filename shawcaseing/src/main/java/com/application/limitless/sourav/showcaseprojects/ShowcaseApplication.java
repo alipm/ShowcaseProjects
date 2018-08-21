@@ -10,7 +10,7 @@ public class ShowcaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/sugo_regular.otf");
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/Larke_Regular.ttf");
 
     }
 }

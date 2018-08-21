@@ -15,4 +15,5 @@
     <item name="edit_icon" type="id" />
     <item name="shadowrectLayout" type="id" />
     <item name="card_imageview" type="id" />
+    <item name="close_icon" type="id" />
 </resources>

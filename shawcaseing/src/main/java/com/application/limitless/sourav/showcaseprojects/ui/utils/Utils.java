@@ -2,6 +2,7 @@ package com.application.limitless.sourav.showcaseprojects.ui.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -21,6 +22,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
@@ -121,6 +123,71 @@ public static void darkenStatusBar(Activity activity, int color) {
             activity.getWindow().getDecorView().setSystemUiVisibility(flags);
             activity.getWindow().setStatusBarColor(Color.GREEN); // optional
         }
+    }
+    public static StateListDrawable getColorDrawableListState(@ColorInt int normalColor, @ColorInt int pressedColor)
+    {
+
+        StateListDrawable arrowImgStates = new StateListDrawable();
+        arrowImgStates.addState(new int[]{android.R.attr.state_pressed}, new ColorDrawable(pressedColor));
+        arrowImgStates.addState(new int[]{android.R.attr.state_focused}, new ColorDrawable(pressedColor));
+        arrowImgStates.addState(new int[]{android.R.attr.state_selected}, new ColorDrawable(pressedColor));
+        arrowImgStates.addState(new int[]{}, new ColorDrawable(normalColor));
+
+        return arrowImgStates;
+    }
+
+    public static  StateListDrawable getDrawableListState(Drawable normalDrawable, Drawable pressedDrawable)
+    {
+
+        StateListDrawable arrowImgStates = new StateListDrawable();
+        arrowImgStates.addState(new int[]{android.R.attr.state_pressed}, pressedDrawable);
+        arrowImgStates.addState(new int[]{android.R.attr.state_focused}, pressedDrawable);
+        arrowImgStates.addState(new int[]{android.R.attr.state_selected}, pressedDrawable);
+        arrowImgStates.addState(new int[]{}, normalDrawable);
+
+        return arrowImgStates;
+    }
+
+    public static StateListDrawable getDrawableListState(Context clContext,int normalDrawable, int pressedDrawable)
+    {
+        StateListDrawable arrowImgStates = new StateListDrawable();
+        arrowImgStates.addState(new int[]{android.R.attr.state_pressed}, clContext.getResources().getDrawable(pressedDrawable));
+        arrowImgStates.addState(new int[]{android.R.attr.state_focused}, clContext.getResources().getDrawable(normalDrawable));
+        arrowImgStates.addState(new int[]{}, clContext.getResources().getDrawable(normalDrawable));
+
+        return arrowImgStates;
+    }
+    public static  StateListDrawable getRoundDrawableListState(@ColorInt  int normalColor,float normalRounded, @ColorInt  int pressedColor,float pressedRounded)
+    {
+
+        GradientDrawable normalDrawable=new GradientDrawable();
+        normalDrawable.setColor(normalColor);
+        normalDrawable.setCornerRadius(normalRounded);
+
+
+        GradientDrawable pressedDrawable=new GradientDrawable();
+        pressedDrawable.setCornerRadius(pressedRounded);
+        pressedDrawable.setColor(pressedColor);
+
+        StateListDrawable arrowImgStates = new StateListDrawable();
+        arrowImgStates.addState(new int[]{android.R.attr.state_pressed}, pressedDrawable);
+        arrowImgStates.addState(new int[]{android.R.attr.state_focused}, pressedDrawable);
+        arrowImgStates.addState(new int[]{android.R.attr.state_selected}, pressedDrawable);
+        arrowImgStates.addState(new int[]{}, normalDrawable);
+
+        return arrowImgStates;
+    }
+    public static  ColorStateList getColorStateListDrawable(int iNormalColor, int iSelectedColor)
+    {
+
+        int[] pressed = new int[]{android.R.attr.state_pressed};
+        int[] focused = new int[]{android.R.attr.state_focused};
+        int[] enabled = new int[]{android.R.attr.state_enabled};
+        int[] selected = new int[]{android.R.attr.state_selected};
+
+
+        return new ColorStateList(new int[][]{pressed, focused, selected, enabled}, new int[]{iSelectedColor, iSelectedColor, iSelectedColor, iNormalColor});
+
     }
 
     /*public static Drawable drawbg(Context mContext) {
