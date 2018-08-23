@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -84,8 +85,16 @@ public class ProfileInfoFragment extends Fragment {
         STextView tvHeading = new STextView(clContext);
         tvHeading.setText("Independent Product Designer");
         tvHeading.setTextColor(Color.DKGRAY);
+        tvHeading.setPadding(i3dp,0,0,i3dp);
         tvHeading.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
         tvHeading.setTypeface(Typeface.DEFAULT_BOLD);
+
+        STextView tvDiscription = new STextView(clContext);
+        tvDiscription.setText(getResources().getString(R.string.about_page_text));
+        tvDiscription.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        tvDiscription.setPadding(i3dp,0,0,i3dp);
+        tvDiscription.setTextColor(Color.GRAY);
+        //        tvDiscription.setTypeface(Typeface.DEFAULT_BOLD);
 
         STextView tvKnowMore = new STextView(clContext);
         tvKnowMore.setText("Know More");
@@ -96,11 +105,6 @@ public class ProfileInfoFragment extends Fragment {
         tvKnowMore.setTextColor(Utils.getColorStateListDrawable(Color.GRAY, Color.DKGRAY));
 
 
-        STextView tvDiscription = new STextView(clContext);
-        tvDiscription.setText(getResources().getString(R.string.about_page_text));
-        tvDiscription.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        tvDiscription.setTextColor(Color.GRAY);
-        //        tvDiscription.setTypeface(Typeface.DEFAULT_BOLD);
 
 
         ShadowRectLayout shadowRectLayout = new ShadowRectLayout(clContext);

@@ -38,7 +38,8 @@ public class AboutExtraDialog extends DialogFragment {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setStyle(STYLE_NO_FRAME, android.R.style.Theme_Holo_Light);
+//        setStyle(STYLE_NO_FRAME, android.R.style.Theme_Holo_Light);
+        setStyle(STYLE_NORMAL, android.R.style.Theme_DeviceDefault_Dialog_NoActionBar);
     }
 
     public AboutExtraDialog(Context clContext)
@@ -63,6 +64,7 @@ public class AboutExtraDialog extends DialogFragment {
         i40dp = Utils.dpToPixel(40);
         GradientDrawable clDialogShape = new GradientDrawable();
         clDialogShape.setColor(0xFF736bfb);
+        clDialogShape.setCornerRadius(12f);
         LinearLayout.LayoutParams clDialogLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         LinearLayout clDialogLayout = new LinearLayout(clContext);
         clDialogLayout.setOrientation(LinearLayout.VERTICAL);
@@ -70,6 +72,8 @@ public class AboutExtraDialog extends DialogFragment {
         clDialogLayout.setLayoutParams(clDialogLayoutParams);
         clDialogLayout.setOrientation(LinearLayout.VERTICAL);
         clDialogLayout.setPadding(i10dp, i10dp, i10dp, i40dp);
+        clDialogLayout.setMinimumHeight(Utils.getScreenHeight()-Utils.dpToPixel(50));
+        clDialogLayout.setMinimumWidth(Utils.getScreenWidth()-Utils.dpToPixel(50));
         clDialogLayout.addView(getCloseButton());
         clDialogLayout.addView(getLableLayout());
         clDialogLayout.addView(getGradiantDivider());
@@ -119,7 +123,7 @@ public class AboutExtraDialog extends DialogFragment {
         textView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
         textView.setText(sLable);
         textView.setGravity(Gravity.CENTER);
-        textView.setTextColor(Utils.getColorStateListDrawable(getResources().getColor(R.color.white_300), Color.WHITE));
+        textView.setTextColor(Utils.getColorStateListDrawable(getResources().getColor(R.color.about_text), Color.WHITE));
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         textView.setOnClickListener(new DialogEventClickListener());
         Typeface type = Typeface.createFromAsset(getResources().getAssets(), "fonts/Larke_Regular.ttf");
