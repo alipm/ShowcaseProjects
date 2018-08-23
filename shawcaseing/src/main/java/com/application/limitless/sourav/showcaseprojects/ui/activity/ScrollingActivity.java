@@ -15,7 +15,7 @@ import com.application.limitless.sourav.showcaseprojects.ui.base.component.Recyc
 
 import java.util.ArrayList;
 
-public class ScrollingActivity extends AppCompatActivity {
+public class ScrollingActivity extends SBaseActivity {
 
     private ArrayList<CLListItem> customerList;
 

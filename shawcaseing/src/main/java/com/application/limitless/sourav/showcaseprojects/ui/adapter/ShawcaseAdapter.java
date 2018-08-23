@@ -2,13 +2,9 @@ package com.application.limitless.sourav.showcaseprojects.ui.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.StateListDrawable;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -23,7 +19,7 @@ import com.application.limitless.sourav.showcaseprojects.R;
 import com.application.limitless.sourav.showcaseprojects.modle.dto.CLListItem;
 import com.application.limitless.sourav.showcaseprojects.ui.activity.AboutActivity;
 import com.application.limitless.sourav.showcaseprojects.ui.activity.HomeActivity;
-import com.application.limitless.sourav.showcaseprojects.ui.fragments.AboutExtraDialog;
+import com.application.limitless.sourav.showcaseprojects.ui.activity.LoginActivity;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
 import java.util.ArrayList;
@@ -91,6 +87,12 @@ public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.Adapte
             {
                 Intent intent = new Intent(clContext, AboutActivity.class);
                 clContext.startActivity(intent);
+            } else if (getLayoutPosition() == 2 || getAdapterPosition() == 2)
+            {
+
+                Intent intent = new Intent(clContext, LoginActivity.class);
+                clContext.startActivity(intent);
+
             } else
                 Toast.makeText(clContext, customerList.get(getLayoutPosition()).getActivityName(), Toast.LENGTH_SHORT).show();
 
@@ -121,7 +123,7 @@ public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.Adapte
         clVisitLayout.setOrientation(LinearLayout.HORIZONTAL);
         clVisitLayout.setId(R.id.visit_button);
         LinearLayout.LayoutParams btVisitParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, Utils.dpToPixel(35));
-//                clVisitLayout.setPadding(20,0,0,0);
+        //                clVisitLayout.setPadding(20,0,0,0);
         btVisitParam.setMargins(0, 40, 40, 40);
         clVisitLayout.setLayoutParams(btVisitParam);
 
@@ -145,7 +147,7 @@ public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.Adapte
         imgArrow.setBackground(clContext.getResources().getDrawable(R.drawable.visit_arrow));
         imgArrow.setLayoutParams(imgArrowParam);
         imgArrow.setId(R.id.arrow_key);
-        imgArrow.setImageDrawable(Utils.getDrawableListState(clContext,R.drawable.right_arrow_green, R.drawable.right_arrow_white));
+        imgArrow.setImageDrawable(Utils.getDrawableListState(clContext, R.drawable.right_arrow_green, R.drawable.right_arrow_white));
         imgArrow.setPadding(8, 12, 8, 12);
         imgArrow.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         //        imgArrow.setImageDrawable();

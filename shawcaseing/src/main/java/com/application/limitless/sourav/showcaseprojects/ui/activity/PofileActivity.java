@@ -1,17 +1,14 @@
 package com.application.limitless.sourav.showcaseprojects.ui.activity;
 
 import android.app.Activity;
-import android.app.UiAutomation;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -23,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.application.limitless.sourav.showcaseprojects.R;
-import com.application.limitless.sourav.showcaseprojects.modle.dto.CardDataDto;
 import com.application.limitless.sourav.showcaseprojects.modle.dto.ProfileDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.ProfileGridAdapter;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.ShadowRectLayout;
@@ -35,7 +31,7 @@ import java.util.ArrayList;
 import static com.application.limitless.sourav.showcaseprojects.ui.utils.Utils.dpToPixel;
 import static com.application.limitless.sourav.showcaseprojects.ui.utils.Utils.getScreenWidth;
 
-public class PofileActivity extends AppCompatActivity implements View.OnClickListener {
+public class PofileActivity extends SBaseActivity implements View.OnClickListener {
     ArrayList<ProfileDataDto> dtoArrayList;
 
 
@@ -64,15 +60,15 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
 
         dtoArrayList = new ArrayList<ProfileDataDto>();
         for (int i = 0; i <= 2; i++) {
-            ProfileDataDto profileDataDto0=new ProfileDataDto(0xb9f14646,0xfff14646,R.drawable.ic_burn);
-            ProfileDataDto profileDataDto1=new ProfileDataDto(0xa854c3d4,0xff54c3d4,R.drawable.ic_water);
-            ProfileDataDto profileDataDto2=new ProfileDataDto(0xb964ca45,0xff64ca45,R.drawable.ic_grass);
-            ProfileDataDto profileDataDto3=new ProfileDataDto(0xbd9941a1,0xff9941a1,R.drawable.ic_wind);
-            ProfileDataDto profileDataDto4=new ProfileDataDto(0xc4bca93c,0xffbca93c,R.drawable.ic_burn);
-            ProfileDataDto profileDataDto5=new ProfileDataDto(0xb75d4ab1,0xff5d4ab1,R.drawable.ic_water);
-            ProfileDataDto profileDataDto6=new ProfileDataDto(0xbf4991af,0xff4991af,R.drawable.ic_grass);
-            ProfileDataDto profileDataDto7=new ProfileDataDto(0xbdd1894a,0xffd1894a,R.drawable.ic_wind);
-            ProfileDataDto profileDataDto8=new ProfileDataDto(0xc13bab78,0xff3bab78,R.drawable.ic_grass);
+            ProfileDataDto profileDataDto0=new ProfileDataDto(0x20f14646,0xfff14646,R.drawable.ic_burn);
+            ProfileDataDto profileDataDto1=new ProfileDataDto(0x2054c3d4,0xff54c3d4,R.drawable.ic_water);
+            ProfileDataDto profileDataDto2=new ProfileDataDto(0x2064ca45,0xff64ca45,R.drawable.ic_grass);
+            ProfileDataDto profileDataDto3=new ProfileDataDto(0x209941a1,0xff9941a1,R.drawable.ic_wind);
+            ProfileDataDto profileDataDto4=new ProfileDataDto(0x20bca93c,0xffbca93c,R.drawable.ic_burn);
+            ProfileDataDto profileDataDto5=new ProfileDataDto(0x205d4ab1,0xff5d4ab1,R.drawable.ic_water);
+            ProfileDataDto profileDataDto6=new ProfileDataDto(0x204991af,0xff4991af,R.drawable.ic_grass);
+            ProfileDataDto profileDataDto7=new ProfileDataDto(0x20d1894a,0xffd1894a,R.drawable.ic_wind);
+            ProfileDataDto profileDataDto8=new ProfileDataDto(0x203bab78,0xff3bab78,R.drawable.ic_grass);
             dtoArrayList.add(profileDataDto0);
             dtoArrayList.add(profileDataDto1);
             dtoArrayList.add(profileDataDto2);

@@ -45,13 +45,14 @@ public class CardInfo1Adapter extends RecyclerView.Adapter<CardInfo1Adapter.Card
             shadowRectLayout.setClipToOutline(false);
         }
         shadowRectLayout.setClipChildren(false);
-        shadowRectLayout.setOffSetY(10);
+        shadowRectLayout.setOffSetY(15);
+        shadowRectLayout.setOffSetX(0);
         shadowRectLayout.setImgGradientColor2(0xD2F47B36);
         shadowRectLayout.setImgGradientColor1(0xDEC9691B);
         shadowRectLayout.setId(R.id.shadowrectLayout);
         shadowRectLayout.setResDrawable(R.drawable.metting_img);
 //        shadowRectLayout.setShadowColorAuto(true);
-        shadowRectLayout.setShadowRadius(30);
+        shadowRectLayout.setShadowRadius(20);
         shadowRectLayout.setRoundCornerRadius(30);
         shadowRectLayout.setShadowColor(0xDEFF6309);
 
@@ -102,7 +103,8 @@ public class CardInfo1Adapter extends RecyclerView.Adapter<CardInfo1Adapter.Card
 
         cardData.shadowRectLayout.setImgGradientColor1(cardDataDto.get((5+i)%8).getiColor1());
         cardData.shadowRectLayout.setImgGradientColor2(cardDataDto.get((5+i)%8).getiColor2());
-        cardData.shadowRectLayout.setShadowColor(cardDataDto.get((i+5 )% 8).getiColor3());
+//        cardData.shadowRectLayout.setShadowColor(cardDataDto.get((i+5 )% 8).getiColor3());
+        cardData.shadowRectLayout.setShadowColorAuto(true);
     }
 
     @Override

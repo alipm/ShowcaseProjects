@@ -15,14 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.application.limitless.sourav.showcaseprojects.R;
-import com.application.limitless.sourav.showcaseprojects.modle.dto.CardDataDto;
 import com.application.limitless.sourav.showcaseprojects.modle.dto.ProfileDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.ShadowRectLayout;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
 import java.util.ArrayList;
-
-import static com.application.limitless.sourav.showcaseprojects.ui.utils.Utils.getScreenWidth;
 
 public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.CardData> {
     final Context mContext;
@@ -42,10 +39,11 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
 //        int radii = 4;
         ShadowRectLayout shadowRectLayout = new ShadowRectLayout(mContext);
         shadowRectLayout.setOffSetY(10);
-        shadowRectLayout.setShadowRadius(25);
+        shadowRectLayout.setOffSetX(0);
+        shadowRectLayout.setShadowRadius(20);
         shadowRectLayout.setId(R.id.shadowrectLayout);
         shadowRectLayout.setRoundCornerRadius(20);
-        shadowRectLayout.setShadowColor(Color.GRAY);
+//        shadowRectLayout.setShadowColor(Color.GRAY);
 
 
 

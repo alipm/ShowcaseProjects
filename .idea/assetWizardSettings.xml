@@ -29,8 +29,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_profile_icon" />
-                            <entry key="sourceFile" value="C:\Users\Sourav\Downloads\images.svg" />
+                            <entry key="outputName" value="ic_delete_button" />
+                            <entry key="sourceFile" value="C:\Users\Sourav\Downloads\delete-button.svg" />
                           </map>
                         </option>
                       </PersistentState>

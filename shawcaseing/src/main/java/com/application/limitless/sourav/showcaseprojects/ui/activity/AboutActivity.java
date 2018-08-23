@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ import com.application.limitless.sourav.showcaseprojects.ui.fragments.ProfileInf
 import com.application.limitless.sourav.showcaseprojects.ui.utils.STextView;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
-public class AboutActivity extends AppCompatActivity {
+public class AboutActivity extends SBaseActivity {
 
 
     @Override

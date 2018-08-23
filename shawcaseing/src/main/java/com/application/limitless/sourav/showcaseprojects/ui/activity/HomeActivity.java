@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -35,11 +34,9 @@ import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
 import java.util.ArrayList;
 
-import okhttp3.internal.Util;
-
 import static com.application.limitless.sourav.showcaseprojects.ui.utils.Utils.dpToPixel;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends SBaseActivity {
 
     ArrayList<CardDataDto> dtoArrayList;
 
