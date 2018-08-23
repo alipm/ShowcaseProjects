@@ -45,7 +45,7 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
         shadowRectLayout.setShadowRadius(25);
         shadowRectLayout.setId(R.id.shadowrectLayout);
         shadowRectLayout.setRoundCornerRadius(20);
-        shadowRectLayout.setShadowColor(0xFFBEBEBE);
+        shadowRectLayout.setShadowColor(Color.GRAY);
 
 
 
@@ -70,7 +70,7 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
         tvProfileName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
         tvProfileName.setText("12 Day");
         tvProfileName.setPadding(0, 0, 15, 0);
-        tvProfileName.setTextColor(Color.DKGRAY);
+        tvProfileName.setTextColor(Color.BLACK);
 
         TextView tvsubText = new TextView(mContext);
         tvsubText.setTypeface(Typeface.DEFAULT_BOLD);
@@ -78,7 +78,7 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
         tvsubText.setGravity(Gravity.CENTER);
         tvsubText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
 //        tvsubText.setPadding(0, 0, 15, 0);
-        tvsubText.setTextColor(Color.GRAY);
+        tvsubText.setTextColor(Color.DKGRAY);
 
 
         linearLayout.addView(imageRounded);
@@ -92,8 +92,8 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ProfileGridAdapter.CardData cardData, int i) {
-        cardData.shadowRectLayout.setImgGradientColor2(profileDataDtos.get(i%8).getiColor1());
-        cardData.shadowRectLayout.setImgGradientColor1(0xFFFFFF);
+        cardData.shadowRectLayout.setImgGradientColor1(profileDataDtos.get(i%8).getiColor2());
+//        cardData.shadowRectLayout.setImgGradientColor2(0xFFFFFF);
 //        cardData.shadowRectLayout.setShadowColorAuto(true);
         //        cardData.shadowRectLayout.setImgGradientColor2(cardDataDtos.get(i%8).getiColor3());
         cardData.imageView.setImageResource(profileDataDtos.get(i%8).getIconResouce());

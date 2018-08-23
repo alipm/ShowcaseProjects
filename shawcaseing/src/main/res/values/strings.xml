@@ -90,5 +90,6 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
-    <string name="about_page_text">Passionate designer curating designs for new startups and founders and crafts beautiful user interfaces with love</string>
+    <string name="about_page_text">    Passionate designer curating designs for new startups and founders and crafts beautiful user interfaces with love.\n    The material is grounded in tactile reality, inspired by the study of paper and ink"
+        </string>
 </resources>

@@ -78,7 +78,7 @@ public class ProfileInfoFragment extends Fragment {
         linearLayout.setOrientation(LinearLayout.VERTICAL);
 
         ImageView ivProfile = new ImageView(clContext);
-        ivProfile.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(250), Utils.dpToPixel(250)));
+        ivProfile.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(200), Utils.dpToPixel(200)));
         ivProfile.setImageResource(R.drawable.ic_profile_icon);
 
         STextView tvHeading = new STextView(clContext);
@@ -97,7 +97,7 @@ public class ProfileInfoFragment extends Fragment {
 
 
         STextView tvDiscription = new STextView(clContext);
-        tvDiscription.setText(R.string.about_page_text);
+        tvDiscription.setText(getResources().getString(R.string.about_page_text));
         tvDiscription.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         tvDiscription.setTextColor(Color.GRAY);
         //        tvDiscription.setTypeface(Typeface.DEFAULT_BOLD);
