@@ -27,6 +27,7 @@ import com.application.limitless.sourav.showcaseprojects.modle.dto.CardDataDto;
 import com.application.limitless.sourav.showcaseprojects.modle.dto.ProfileDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.ProfileGridAdapter;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.ShadowRectLayout;
+import com.application.limitless.sourav.showcaseprojects.ui.utils.STextView;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
 import java.util.ArrayList;
@@ -95,16 +96,13 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         toolbar.addView(getToobarLayout());
 
         LinearLayout clLinearLayout = new LinearLayout(this);
+        clLinearLayout.setPadding(0,Utils.dpToPixel(12),0,0);
         DrawerLayout.LayoutParams clLinearLayout_param = new DrawerLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         clLinearLayout.setOrientation(LinearLayout.VERTICAL);
         clLinearLayout.setGravity(Gravity.CENTER);
         clLinearLayout.setLayoutParams(clLinearLayout_param);
         clLinearLayout.addView(toolbar);
-
         clLinearLayout.addView(getContentLayout());
-
-
-
         return clLinearLayout;
     }
 
@@ -132,16 +130,12 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         headText.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         headText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 //        headText.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_hamburger), null, null, null);
-
-
         ImageView editImage= new ImageView(this);
         editImage.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         editImage.setPadding(dpToPixel(10), dpToPixel(10), dpToPixel(10), dpToPixel(10));
         editImage.setImageResource(R.drawable.ic_edit_black_24dp);
         editImage.setId(R.id.edit_icon);
         editImage.setOnClickListener(this);
-
-
         toobarLayout.addView(imageView);
         toobarLayout.addView(headText);
         toobarLayout.addView(editImage);
@@ -177,15 +171,16 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         imageRounded.setImageResource(R.drawable.profile_man);
 
         ShadowRectLayout shadowRectLayout1=new ShadowRectLayout(this);
-        shadowRectLayout1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        shadowRectLayout1.setLayoutParams(new LinearLayout.LayoutParams((int) (getScreenWidth() *0.3), (int) (getScreenWidth() *0.3)));
         shadowRectLayout1.setRoundCornerRadius((int) (getScreenWidth() *0.3));
         shadowRectLayout1.addView(imageRounded);
+//        shadowRectLayout1.setResDrawable(R.drawable.ic_profile_icon);
         shadowRectLayout1.setOffSetY(10);
         shadowRectLayout1.setShadowRadius(10);
         shadowRectLayout1.setShadowColor(Color.LTGRAY);
 
 
-        TextView tvProfileName = new TextView(this);
+        STextView tvProfileName = new STextView(this);
         tvProfileName.setTypeface(Typeface.DEFAULT_BOLD);
         tvProfileName.setGravity(Gravity.CENTER);
         tvProfileName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
@@ -193,7 +188,7 @@ public class PofileActivity extends AppCompatActivity implements View.OnClickLis
         tvProfileName.setPadding(0, 0, 15, 0);
         tvProfileName.setTextColor(Color.DKGRAY);
 
-        TextView tvsubText = new TextView(this);
+        STextView tvsubText = new STextView(this);
         tvsubText.setTypeface(Typeface.DEFAULT_BOLD);
         tvsubText.setText("User Interface Designer");
         tvsubText.setGravity(Gravity.CENTER);

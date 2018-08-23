@@ -55,7 +55,7 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
         linearLayout.setLayoutParams(linearLayoutParam);
         linearLayout.setGravity(Gravity.CENTER_HORIZONTAL);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
-//        linearLayout.setPadding(0, 80, 0, 30);
+        linearLayout.setPadding(0, 0, 0, 30);
 
         ImageView imageRounded = new ImageView(mContext);
         imageRounded.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(100), Utils.dpToPixel(110)));
@@ -92,9 +92,10 @@ public class ProfileGridAdapter extends RecyclerView.Adapter<ProfileGridAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ProfileGridAdapter.CardData cardData, int i) {
-        cardData.shadowRectLayout.setImgGradientColor1(profileDataDtos.get(i%8).getiColor2());
-//        cardData.shadowRectLayout.setImgGradientColor2(cardDataDtos.get(i%8).getiColor3());
-        cardData.shadowRectLayout.setImgGradientColor2(0x00000000);
+        cardData.shadowRectLayout.setImgGradientColor2(profileDataDtos.get(i%8).getiColor1());
+        cardData.shadowRectLayout.setImgGradientColor1(0xFFFFFF);
+//        cardData.shadowRectLayout.setShadowColorAuto(true);
+        //        cardData.shadowRectLayout.setImgGradientColor2(cardDataDtos.get(i%8).getiColor3());
         cardData.imageView.setImageResource(profileDataDtos.get(i%8).getIconResouce());
 
     }

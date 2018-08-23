@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#b7cccccc</color>
+    <color name="colorPrimary">#cccccc</color>
     <color name="colorPrimaryDark">#5c5b5b</color>
     <color name="colorAccent">#deff6309</color>
 
@@ -22,8 +22,11 @@
     <color name="one_simplegraydark">#4413c294</color>
     <color name="pure_white"> #ffffff</color>
     <color name="text_color">#202020</color>
-    <color name="pure_black">#000000</color>
-    <color name="white_300">#aaa5fc</color>
+    <color name="pure_black">#79daaf</color>
+    <color name="white_300">#f9f9ff</color>
+    <color name="about_purple">#FF736bfb</color>
+    <color name="about_text">#dad9ef</color>
+    <color name="about_background">#f4f6fa</color>
 
     <!---->
 </resources>

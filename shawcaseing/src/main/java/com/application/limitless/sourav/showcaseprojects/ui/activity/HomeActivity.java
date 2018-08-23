@@ -29,6 +29,7 @@ import com.application.limitless.sourav.showcaseprojects.modle.dto.CardDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.CardInfo0Adapter;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.CardInfo1Adapter;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.CardInfo2Adapter;
+import com.application.limitless.sourav.showcaseprojects.ui.utils.STextView;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.StateBackgroundDrawable;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
@@ -82,7 +83,7 @@ public class HomeActivity extends AppCompatActivity {
         navigationViewList.setFitsSystemWindows(true);
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        linearLayout.setBackgroundColor(0xFFFFFFFF);
+        linearLayout.setBackgroundColor(getResources().getColor(R.color.white_300));
         linearLayout.setPadding(0, Utils.dpToPixel(50), 0, 0);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         String[] naviationOption = new String[]{"Home", "Profile", "Series", "Downloads", "Recent ", "History", "About  Me", "Exit"};
@@ -102,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
         appbar.setLayoutParams(appbar_param);
         Toolbar toolbar = new Toolbar(this);
         LinearLayout.LayoutParams toolbar_param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        toolbar.setBackgroundColor(getResources().getColor(R.color.pure_white));
+        toolbar.setBackgroundColor(getResources().getColor(R.color.white_300));
         toolbar.setLayoutParams(toolbar_param);
         toolbar.setContentInsetStartWithNavigation(0);
         toolbar.setContentInsetsAbsolute(0, 0);
@@ -111,6 +112,7 @@ public class HomeActivity extends AppCompatActivity {
         LinearLayout clLinearLayout = new LinearLayout(this);
         DrawerLayout.LayoutParams clLinearLayout_param = new DrawerLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         clLinearLayout.setOrientation(LinearLayout.VERTICAL);
+        clLinearLayout.setPadding(0,Utils.dpToPixel(12),0,0);
         clLinearLayout.setGravity(Gravity.CENTER);
         clLinearLayout.setLayoutParams(clLinearLayout_param);
 
@@ -119,6 +121,7 @@ public class HomeActivity extends AppCompatActivity {
         ScrollView scrollView = new ScrollView(this);
         scrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         scrollView.setFillViewport(true);
+        scrollView.setBackgroundColor(getResources().getColor(R.color.white_300));
         scrollView.addView(getContentLayout());
         clLinearLayout.addView(scrollView);
 
@@ -203,7 +206,7 @@ public class HomeActivity extends AppCompatActivity {
     {
         LinearLayout contentLayout = new LinearLayout(this);
         contentLayout.setOrientation(LinearLayout.VERTICAL);
-        contentLayout.setBackgroundColor(getResources().getColor(R.color.pure_white));
+        contentLayout.setBackgroundColor(getResources().getColor(R.color.white_300));
         contentLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         CardInfo0Adapter cardInfoAdapter0 = new CardInfo0Adapter(this, dtoArrayList);
         CardInfo1Adapter cardInfoAdapter1 = new CardInfo1Adapter(this, dtoArrayList);
@@ -315,7 +318,7 @@ public class HomeActivity extends AppCompatActivity {
         layout.setPadding(0, 20, 0, 20);
         layout.setGravity(Gravity.CENTER);
 
-        TextView textView = new TextView(this);
+        STextView textView = new STextView(this);
         LinearLayout.LayoutParams textParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         textView.setText(sLable);
         textView.setAllCaps(true);

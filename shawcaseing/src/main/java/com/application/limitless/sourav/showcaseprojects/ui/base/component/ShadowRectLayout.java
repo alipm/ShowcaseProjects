@@ -151,13 +151,14 @@ public class ShadowRectLayout extends ViewGroup {
     protected void onLayout(boolean changed, int l, int t, int r, int b)
     {
         View view = getChildAt(0);
-        int radii = (int) (shadowRadius * SHADOW_MULTIPLIER);
-        int left = radii * shadowLeft;
-        int top = radii * shadowLeft;
-        int right = radii * shadowRight;
-        int bottom = radii * shadowLeft;
-
-        view.layout(left, top, getWidth() - right, getHeight() - bottom);
+        if (view!=null){
+            int radii = (int) (shadowRadius * SHADOW_MULTIPLIER);
+            int left = radii * shadowLeft;
+            int top = radii * shadowLeft;
+            int right = radii * shadowRight;
+            int bottom = radii * shadowLeft;
+            view.layout(left, top, getWidth() - right, getHeight() - bottom);
+        }
     }
 
     @Override

@@ -24,10 +24,13 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.application.limitless.sourav.showcaseprojects.R;
 
@@ -90,6 +93,13 @@ public static void darkenStatusBar(Activity activity, int color) {
 
         return output;
     }
+    public static Drawable getIcon(Context context, int iResId, int iColor)
+    {
+        Drawable drawable = context.getResources().getDrawable(iResId);
+        drawable = DrawableCompat.wrap(drawable);
+        DrawableCompat.setTint(drawable, iColor);// CLThemeUtil.getMenuViewColors(context, R.styleable.CLNavigationView_item_imageColor));
+        return drawable;
+    }
 
     public static boolean isTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout
@@ -98,11 +108,11 @@ public static void darkenStatusBar(Activity activity, int color) {
     }
 
 
-    public static StateListDrawable getSelectorDrawable(int color) {
+    public static StateListDrawable getSelectorDrawable(int prssedColor) {
         StateListDrawable res = new StateListDrawable();
-        res.addState(new int[]{android.R.attr.state_pressed}, new ColorDrawable(color));
-        res.addState(new int[]{android.R.attr.state_selected}, new ColorDrawable(color));
-        res.addState(new int[]{android.R.attr.state_activated}, new ColorDrawable(color));
+        res.addState(new int[]{android.R.attr.state_pressed}, new ColorDrawable(prssedColor));
+        res.addState(new int[]{android.R.attr.state_selected}, new ColorDrawable(prssedColor));
+        res.addState(new int[]{android.R.attr.state_activated}, new ColorDrawable(prssedColor));
         res.addState(new int[]{}, new ColorDrawable(Color.TRANSPARENT));
         return res;
     }
@@ -113,6 +123,13 @@ public static void darkenStatusBar(Activity activity, int color) {
             flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;   // add LIGHT_STATUS_BAR to flag
             activity.getWindow().getDecorView().setSystemUiVisibility(flags);
             activity.getWindow().setStatusBarColor(Color.GRAY); // optional
+        }
+    }
+    public static void setStatusBarColor(Activity activity,@ColorInt int statusBarColor){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = activity.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(statusBarColor);
         }
     }
 
@@ -144,7 +161,6 @@ public static void darkenStatusBar(Activity activity, int color) {
         arrowImgStates.addState(new int[]{android.R.attr.state_focused}, pressedDrawable);
         arrowImgStates.addState(new int[]{android.R.attr.state_selected}, pressedDrawable);
         arrowImgStates.addState(new int[]{}, normalDrawable);
-
         return arrowImgStates;
     }
 

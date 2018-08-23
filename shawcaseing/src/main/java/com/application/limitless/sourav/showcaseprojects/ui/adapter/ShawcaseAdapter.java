@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.application.limitless.sourav.showcaseprojects.R;
 import com.application.limitless.sourav.showcaseprojects.modle.dto.CLListItem;
+import com.application.limitless.sourav.showcaseprojects.ui.activity.AboutActivity;
 import com.application.limitless.sourav.showcaseprojects.ui.activity.HomeActivity;
 import com.application.limitless.sourav.showcaseprojects.ui.fragments.AboutExtraDialog;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
@@ -88,9 +89,8 @@ public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.Adapte
                 clContext.startActivity(intent);
             } else if (getLayoutPosition() == 1 || getAdapterPosition() == 1)
             {
-                AboutExtraDialog clNewNoteDialog = new AboutExtraDialog(clContext);
-                FragmentManager clFragmentManager = ((AppCompatActivity) clContext).getSupportFragmentManager();
-                clNewNoteDialog.show(clFragmentManager, "About");
+                Intent intent = new Intent(clContext, AboutActivity.class);
+                clContext.startActivity(intent);
             } else
                 Toast.makeText(clContext, customerList.get(getLayoutPosition()).getActivityName(), Toast.LENGTH_SHORT).show();
 

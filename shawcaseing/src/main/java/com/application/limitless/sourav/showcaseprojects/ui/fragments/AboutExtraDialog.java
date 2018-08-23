@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
@@ -119,7 +120,6 @@ public class AboutExtraDialog extends DialogFragment {
         textView.setText(sLable);
         textView.setGravity(Gravity.CENTER);
         textView.setTextColor(Utils.getColorStateListDrawable(getResources().getColor(R.color.white_300), Color.WHITE));
-//        textView.setBackground(Utils.getRoundDrawableListState(Color.TRANSPARENT, 5f, 0x58FFFFFF, 5f));
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         textView.setOnClickListener(new DialogEventClickListener());
         Typeface type = Typeface.createFromAsset(getResources().getAssets(), "fonts/Larke_Regular.ttf");
@@ -139,11 +139,12 @@ public class AboutExtraDialog extends DialogFragment {
     public ImageView getIconSet(@DrawableRes int imgResource)
     {
         ImageView iconIv = new ImageView(clContext);
-        LinearLayout.LayoutParams iconIvParam = new LinearLayout.LayoutParams(Utils.dpToPixel(32), Utils.dpToPixel(32));
+        LinearLayout.LayoutParams iconIvParam = new LinearLayout.LayoutParams(Utils.dpToPixel(42), Utils.dpToPixel(42));
         iconIvParam.setMargins(i10dp, i10dp, i10dp, i10dp);
         iconIv.setPadding(i5dp, i5dp, i5dp, i5dp);
-        iconIv.setImageResource(imgResource);
-        iconIv.setBackground(Utils.getRoundDrawableListState(Color.TRANSPARENT, 32f, 0xFF7D76F4, 32));
+        Drawable icon = Utils.getIcon(clContext, imgResource, Color.WHITE);
+        iconIv.setImageDrawable(icon);
+        iconIv.setBackground(Utils.getRoundDrawableListState(Color.TRANSPARENT, 42f, 0xFF7D76F4, 32));
         iconIv.setOnClickListener(new DialogEventClickListener());
         iconIv.setLayoutParams(iconIvParam);
         return iconIv;
