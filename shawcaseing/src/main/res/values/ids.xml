@@ -20,4 +20,9 @@
     <item name="about_tablayout" type="id" />
     <item name="about_viewpager" type="id" />
     <item name="hire_me_layout" type="id" />
+    <item name="user_name" type="id" />
+    <item name="user_password" type="id" />
+    <item name="singin_layout" type="id" />
+    <item name="tv_loginError" type="id" />
+    <item name="singup_layout" type="id" />
 </resources>

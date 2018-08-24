@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#cccccc</color>
-    <color name="colorPrimaryDark">#5c5b5b</color>
-    <color name="colorAccent">#deff6309</color>
+    <color name="colorPrimary">#ffcccccc</color>
+    <color name="colorPrimaryDark">#ff918e8e</color>
+    <color name="colorAccent">#3b86a9</color>
 
-    <color name="gray_50">   #FAFAFA</color>
-    <color name="gray_100">  #F5F5F5</color>
-    <color name="gray_200">  #EEEEEE</color>
-    <color name="gray_300">  #E0E0E0</color>
-    <color name="gray_600">   #dcdcdc</color>
-    <color name="gray_500">   #9E9E9E</color>
-    <color name="gray_700">   #616161</color>
-    <color name="gray_medium">#bebebe</color>
-    <color name="cyan_500">   #00bcd4</color>
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#cfcfcf</color>
+    <color name="gray_500">#bcbcbc</color>
+    <color name="gray_600">#9E9E9E</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_medium">#c1c2c6</color>
+    <color name="cyan_500">#00bcd4</color>
     <color name="green_basic">#23B96B</color>
     <color name="green_light">#D9F4E5</color>
-    <color name="green_dark"> #18B661</color>
-    <color name="blue_light"> #61A3FE</color>
-    <!--show case one -->
+    <color name="green_dark">#18B661</color>
+    <color name="blue_light">#61A3FE</color>
+    <!--show case 1-->
     <color name="one_simplegraydark">#4413c294</color>
-    <color name="pure_white"> #ffffff</color>
-    <color name="text_color">#202020</color>
-    <color name="pure_black">#79daaf</color>
+    <color name="pure_white">#ffffff</color>
+    <color name="text_color">#383838</color>
+    <color name="pure_black">#000000</color>
     <color name="white_300">#f9f9ff</color>
+    <!--shaow case 2-->
     <color name="about_purple">#FF736bfb</color>
     <color name="about_text">#dad9ef</color>
     <color name="about_background">#f4f6fa</color>
+    <!--shaow case 3-->
+    <color name="login_background">#fafafa</color>
+    <color name="blue_login1">#008fff</color>
+    <color name="blue_login2">#0372c9</color>
 
     <!---->
 </resources>
