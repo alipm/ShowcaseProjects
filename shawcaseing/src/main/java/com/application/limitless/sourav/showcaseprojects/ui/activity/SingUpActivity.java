@@ -1,32 +1,37 @@
 package com.application.limitless.sourav.showcaseprojects.ui.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.text.InputType;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.application.limitless.sourav.showcaseprojects.R;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.ShadowRectLayout;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.STextView;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
-public class LoginActivity extends SBaseActivity {
+public class SingUpActivity extends SBaseActivity {
     private int i10dp;
     private int i20dp;
     private int i40dp;
@@ -39,65 +44,77 @@ public class LoginActivity extends SBaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        Utils.setLightStatusBar(this);
+        Utils.setStatusBarColor(this, Color.WHITE);
+        i3dp = Utils.dpToPixel(3);
+        i5dp = Utils.dpToPixel(5);
+        i10dp = Utils.dpToPixel(10);
+        i15dp = Utils.dpToPixel(15);
+        i20dp = Utils.dpToPixel(20);
+        i40dp = Utils.dpToPixel(40);
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        linearLayout.setPadding(0, Utils.dpToPixel(25), 0, Utils.dpToPixel(25));
+        linearLayout.setPadding(i40dp, i40dp, i40dp, i20dp);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setBackgroundColor(getResources().getColor(R.color.about_background));
+        linearLayout.setBackgroundColor(getResources().getColor(R.color.login_background2));
         linearLayout.setGravity(Gravity.CENTER_HORIZONTAL);
 
-        ImageView ivCompLogo = new ImageView(this);
-        ivCompLogo.setLayoutParams(new LinearLayout.LayoutParams(Utils.getScreenWidth(), Utils.getScreenWidth() / 3));
-        ivCompLogo.setImageResource(R.drawable.workwave_logo);
-        ivCompLogo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        ImageView ivbackarrow = new ImageView(this);
+        ivbackarrow.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        Drawable backArrow = Utils.getIcon(this, R.drawable.ic_arrow_back_black_24dp, Color.WHITE);
+        ivbackarrow.setScaleType(ImageView.ScaleType.FIT_START);
+        ivbackarrow.setId(R.id.back_arrow);
+        ivbackarrow.setOnClickListener(new ViewEventClickListener());
+        ivbackarrow.setImageDrawable(backArrow);
 
-        STextView tvCompName = new STextView(this);
-        tvCompName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
-        tvCompName.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        tvCompName.setGravity(Gravity.CENTER);
-        tvCompName.setText("W o r k w a v e");
-        tvCompName.setShadowLayer(10, 5.0f, 5.0f, Color.GRAY);
-        tvCompName.setTypeface(Typeface.DEFAULT_BOLD);
-        tvCompName.setTextColor(Color.BLACK);
+        STextView tvLogIn = new STextView(this);
+        tvLogIn.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
+        tvLogIn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        tvLogIn.setGravity(Gravity.START);
+        tvLogIn.setText("Log In");
+        tvLogIn.setTypeface(Typeface.DEFAULT_BOLD);
+        tvLogIn.setTextColor(Color.WHITE);
+        //        tvCompName.setShadowLayer(10, 5.0f, 5.0f, Color.GRAY);
 
         TextView tvError = new TextView(this);
-        tvError.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+        tvError.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         tvError.setVisibility(View.INVISIBLE);
         tvError.setId(R.id.tv_loginError);
         tvError.setGravity(Gravity.CENTER);
+        tvError.setTypeface(Typeface.DEFAULT_BOLD);
         tvError.setText("Invalid Email / Password");
-        tvError.setTextColor(getResources().getColor(android.R.color.holo_red_light));
+        tvError.setTextColor(getResources().getColor(R.color.red_error_color));
 
-        STextView tvAccount = new STextView(this);
-        tvAccount.setText("Don't have an Account ?");
-        tvAccount.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        tvAccount.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
-        tvAccount.setTextColor(Color.GRAY);
+
+        SpannableString span1 = new SpannableString("First Time Here ? ");
+        SpannableString span2 = new SpannableString("Sign Up");
+
+        span1.setSpan(new RelativeSizeSpan(0.85f), 0, span1.length(), 0);
+        span1.setSpan(new ForegroundColorSpan(Color.WHITE), 0, span1.length(), 0);
+        span2.setSpan(new RelativeSizeSpan(1.2f), 0, span2.length(), 0);
+        span2.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, span2.length(), 0);
+//        span2.setSpan(new UnderlineSpan(), 0, span2.length(), 0);
+        span2.setSpan(new ForegroundColorSpan(0xff9ab7c3), 0, span2.length(), 0);
+
 
         STextView tvSingUpPage = new STextView(this);
-        tvSingUpPage.setText("Sign Up Now");
         tvSingUpPage.setId(R.id.singup_layout);
-        tvSingUpPage.setAllCaps(true);
-        tvSingUpPage.setPaintFlags(tvSingUpPage.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvSingUpPage.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        tvSingUpPage.setTypeface(Typeface.DEFAULT_BOLD);
-        tvSingUpPage.setOnClickListener(new DialogEventClickListener());
-        tvSingUpPage.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        tvSingUpPage.setTextColor(Utils.getColorStateListDrawable(getResources().getColor(R.color.blue_login1), getResources().getColor(R.color.blue_login2)));
+        tvSingUpPage.setOnClickListener(new ViewEventClickListener());
+        tvSingUpPage.setText(TextUtils.concat(span1, " ", span2));
 
 
-        linearLayout.addView(ivCompLogo);
-        linearLayout.addView(tvCompName);
-        linearLayout.addView(getGapView(30));
-        linearLayout.addView(getShadowEditFields(R.drawable.ic_user_symbol, "Username", R.id.user_name));
+        linearLayout.addView(ivbackarrow);
         linearLayout.addView(getGapView(15));
-        linearLayout.addView(getShadowEditFields(R.drawable.ic_locked_padlock, "Password", R.id.user_password));
+        linearLayout.addView(tvLogIn);
+        linearLayout.addView(getGapView(30));
+        linearLayout.addView(getEditFeilds(R.drawable.ic_user_profile, "Username", R.id.user_name));
+        linearLayout.addView(getGapView(20));
+        linearLayout.addView(getEditFeilds(R.drawable.ic_pass_lock, "Password", R.id.user_password));
+        linearLayout.addView(getGapView(5));
         linearLayout.addView(tvError);
         linearLayout.addView(getGapView(20));
         linearLayout.addView(getSignInButton());
-        linearLayout.addView(getGapView(25));
-        linearLayout.addView(tvAccount);
+        linearLayout.addView(getGapView(10));
         linearLayout.addView(tvSingUpPage);
 
 
@@ -108,26 +125,14 @@ public class LoginActivity extends SBaseActivity {
         setContentView(scrollView);
     }
 
-    public ShadowRectLayout getShadowEditFields(@DrawableRes int iconEditText, String hintEditText, int edittextId)
+    public LinearLayout getEditFeilds(@DrawableRes int iconEditText, String hintEditText, int edittextId)
     {
 
-        i3dp = Utils.dpToPixel(3);
-        i5dp = Utils.dpToPixel(5);
-        i10dp = Utils.dpToPixel(10);
-        i15dp = Utils.dpToPixel(15);
-        i20dp = Utils.dpToPixel(20);
-        i40dp = Utils.dpToPixel(40);
-        ShadowRectLayout shadowRectLayout = new ShadowRectLayout(this);
-        shadowRectLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        shadowRectLayout.setOffSetX(0);
-        shadowRectLayout.setOffSetY(19);
-        shadowRectLayout.setRoundCornerRadius(Utils.dpToPixel(50));
-        shadowRectLayout.setShadowRadius(20);
-        shadowRectLayout.setShadowColor(getResources().getColor(R.color.gray_300));
+
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setGravity(Gravity.CENTER_VERTICAL);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        linearLayout.setPadding(i10dp, i5dp, i5dp, i5dp);
+        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        linearLayout.setPadding(i3dp, i5dp, i3dp, i5dp);
 
         ImageView ivEditIcon = new ImageView(this);
         ivEditIcon.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(24), Utils.dpToPixel(24)));
@@ -138,9 +143,11 @@ public class LoginActivity extends SBaseActivity {
         etEditFields.setHint(hintEditText);
         etEditFields.setId(edittextId);
         etEditFields.setMaxLines(1);
-        etEditFields.setTextSize(14);
+        etEditFields.setOnFocusChangeListener(new ViewEventClickListener());
+        etEditFields.setTextColor(getResources().getColor(R.color.white_300));
+        etEditFields.setTextSize(16);
         etEditFields.setSingleLine(true);
-        etEditFields.setHintTextColor(getResources().getColor(R.color.gray_medium));
+        etEditFields.setHintTextColor(getResources().getColor(R.color.gray_300));
         etEditFields.setBackground(null);
         if (edittextId == R.id.user_password)
             etEditFields.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -150,8 +157,7 @@ public class LoginActivity extends SBaseActivity {
 
         linearLayout.addView(ivEditIcon);
         linearLayout.addView(etEditFields);
-        shadowRectLayout.addView(linearLayout);
-        return shadowRectLayout;
+        return linearLayout;
     }
 
     public View getGapView(int iHeight)
@@ -165,37 +171,37 @@ public class LoginActivity extends SBaseActivity {
     {
         ShadowRectLayout shadowRectLayout = new ShadowRectLayout(this);
         shadowRectLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        shadowRectLayout.setOffSetY(0);
+        shadowRectLayout.setOffSetY(15);
         shadowRectLayout.setOffSetX(0);
-        shadowRectLayout.setShadowRadius(0);
-        shadowRectLayout.setShadowLeft(false);
-        shadowRectLayout.setShadowRight(false);
-        shadowRectLayout.setShadowTop(false);
-        shadowRectLayout.setShadowBottom(false);
-        //        shadowRectLayout.setShadowColor(getResources().getColor(R.color.blue_login1));
-        shadowRectLayout.setImgGradientColor1(getResources().getColor(R.color.blue_login1));
-        shadowRectLayout.setImgGradientColor2(getResources().getColor(R.color.blue_login2));
+        shadowRectLayout.setShadowRadius(20);
+        shadowRectLayout.setImgGradientColor1(getResources().getColor(R.color.pure_black));
+        shadowRectLayout.setShadowColor(getResources().getColor(R.color.shaow_black));
         shadowRectLayout.setId(R.id.singin_layout);
-        shadowRectLayout.setOnClickListener(new DialogEventClickListener());
+        shadowRectLayout.setOnClickListener(new ViewEventClickListener());
         shadowRectLayout.setRoundCornerRadius(i40dp);
         STextView textView = new STextView(this);
         textView.setLayoutParams(new LinearLayout.LayoutParams(Utils.getScreenWidth() / 2 + Utils.dpToPixel(40), ViewGroup.LayoutParams.WRAP_CONTENT));
-        textView.setText("Sing In");
-        textView.setAllCaps(true);
+        textView.setText("Log In");
+        //        textView.setAllCaps(true);
         textView.setGravity(Gravity.CENTER);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
         textView.setTextColor(Utils.getColorStateListDrawable(Color.WHITE, getResources().getColor(R.color.pure_black)));
-        textView.setPadding(0, i10dp, 0, i10dp);
+        textView.setPadding(0, i15dp, 0, i15dp);
         textView.setTypeface(Typeface.DEFAULT_BOLD);
         shadowRectLayout.addView(textView);
         return shadowRectLayout;
     }
 
-    private class DialogEventClickListener implements View.OnClickListener {
+
+
+    class ViewEventClickListener implements View.OnClickListener, View.OnFocusChangeListener {
         @Override
         public void onClick(View view)
         {
-            if (view.getId() == R.id.singin_layout)
+            if (view.getId() == R.id.back_arrow)
+            {
+                finish();
+            } else if (view.getId() == R.id.singin_layout)
             {
 
                 final TextView textView = findViewById(R.id.tv_loginError);
@@ -213,10 +219,25 @@ public class LoginActivity extends SBaseActivity {
             } else if (view.getId() == R.id.singup_layout)
             {
 
-                Intent intent = new Intent(LoginActivity.this, SingUpActivity.class);
-                LoginActivity.this.startActivity(intent);
+                Toast.makeText(SingUpActivity.this, "Todo", Toast.LENGTH_SHORT).show();
             }
 
+        }
+
+        @Override
+        public void onFocusChange(View view, boolean b)
+        {
+            LinearLayout layout = (LinearLayout) view.getParent();
+            if (b)
+            {
+                layout.setBackground(getResources().getDrawable(R.drawable.focus_bottom_line_true));
+            } else
+            {
+                ViewParent parent = view.getParent();
+                layout.setBackground(getResources().getDrawable(R.drawable.focus_bottom_line_false));
+
+
+            }
         }
     }
 }

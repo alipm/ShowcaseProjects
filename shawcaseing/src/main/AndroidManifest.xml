@@ -36,7 +36,10 @@
             android:theme="@style/AppTheme.NoActionBarWhite" />
         <activity
             android:name=".ui.activity.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBarWhite"/>
+            android:theme="@style/AppTheme.NoActionBarWhite" />
+        <activity
+            android:name=".ui.activity.SingUpActivity"
+            android:theme="@style/AppTheme.NoActionBarWhite" />
     </application>
 
 

@@ -31,8 +31,11 @@
     <color name="about_background">#f4f6fa</color>
     <!--shaow case 3-->
     <color name="login_background">#fafafa</color>
+    <color name="login_background2">#464b58</color>
     <color name="blue_login1">#008fff</color>
     <color name="blue_login2">#0372c9</color>
+    <color name="shaow_black">#ff30343f</color>
+    <color name="red_error_color">#e5697d</color>
 
     <!---->
 </resources>

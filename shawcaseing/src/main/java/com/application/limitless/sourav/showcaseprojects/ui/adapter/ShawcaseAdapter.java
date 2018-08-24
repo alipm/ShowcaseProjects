@@ -93,6 +93,12 @@ public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.Adapte
                 Intent intent = new Intent(clContext, LoginActivity.class);
                 clContext.startActivity(intent);
 
+            }
+            if (getLayoutPosition() == 3 || getAdapterPosition() == 3)
+            {
+                Intent intent = new Intent(clContext, LoginActivity.class);
+                clContext.startActivity(intent);
+
             } else
                 Toast.makeText(clContext, customerList.get(getLayoutPosition()).getActivityName(), Toast.LENGTH_SHORT).show();
 
