@@ -133,6 +133,7 @@ public class SingUpActivity extends SBaseActivity {
         linearLayout.setGravity(Gravity.CENTER_VERTICAL);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         linearLayout.setPadding(i3dp, i5dp, i3dp, i5dp);
+        linearLayout.setBackground(getResources().getDrawable(R.drawable.focus_bottom_line_false));
 
         ImageView ivEditIcon = new ImageView(this);
         ivEditIcon.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPixel(24), Utils.dpToPixel(24)));
@@ -157,6 +158,7 @@ public class SingUpActivity extends SBaseActivity {
 
         linearLayout.addView(ivEditIcon);
         linearLayout.addView(etEditFields);
+
         return linearLayout;
     }
 

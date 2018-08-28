@@ -20,15 +20,16 @@ import com.application.limitless.sourav.showcaseprojects.modle.dto.CLListItem;
 import com.application.limitless.sourav.showcaseprojects.ui.activity.AboutActivity;
 import com.application.limitless.sourav.showcaseprojects.ui.activity.HomeActivity;
 import com.application.limitless.sourav.showcaseprojects.ui.activity.LoginActivity;
+import com.application.limitless.sourav.showcaseprojects.ui.activity.SlidePanleActivity;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
 import java.util.ArrayList;
 
-public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.AdapterViewHolder> {
+public class ShowcaseAdapter extends RecyclerView.Adapter<ShowcaseAdapter.AdapterViewHolder> {
     private final Context clContext;
     private final ArrayList<CLListItem> customerList;
 
-    public ShawcaseAdapter(Context clContext, ArrayList<CLListItem> customerList)
+    public ShowcaseAdapter(Context clContext, ArrayList<CLListItem> customerList)
     {
         this.clContext = clContext;
         this.customerList = customerList;
@@ -96,7 +97,7 @@ public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.Adapte
             }
             if (getLayoutPosition() == 3 || getAdapterPosition() == 3)
             {
-                Intent intent = new Intent(clContext, LoginActivity.class);
+                Intent intent = new Intent(clContext, SlidePanleActivity.class);
                 clContext.startActivity(intent);
 
             } else
@@ -132,12 +133,9 @@ public class ShawcaseAdapter extends RecyclerView.Adapter<ShawcaseAdapter.Adapte
         //                clVisitLayout.setPadding(20,0,0,0);
         btVisitParam.setMargins(0, 40, 40, 40);
         clVisitLayout.setLayoutParams(btVisitParam);
-
-
         TextView clVisittxt = new TextView(clContext);
         LinearLayout.LayoutParams txtVisitParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         txtVisitParam.setMargins(20, 0, 10, 0);
-
         clVisittxt.setLayoutParams(txtVisitParam);
         clVisittxt.setId(R.id.visit_button);
         clVisittxt.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);

@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#ffcccccc</color>
-    <color name="colorPrimaryDark">#ff918e8e</color>
+    <color name="colorPrimary">#ababab</color>
+    <color name="colorPrimaryDark">#848484</color>
     <color name="colorAccent">#3b86a9</color>
 
-    <color name="gray_50">#FAFAFA</color>
-    <color name="gray_100">#F5F5F5</color>
-    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_200">#f2f2f2</color>
     <color name="gray_300">#E0E0E0</color>
-    <color name="gray_400">#cfcfcf</color>
-    <color name="gray_500">#bcbcbc</color>
+    <color name="gray_400">#cccaca</color>
+    <color name="gray_500">#b7b7b7</color>
     <color name="gray_600">#9E9E9E</color>
-    <color name="gray_700">#616161</color>
+    <color name="gray_700">#7f847f</color>
+    <color name="gray_800">#636665</color>
+    <color name="gray_900">#504f4f</color>
     <color name="gray_medium">#c1c2c6</color>
-    <color name="cyan_500">#00bcd4</color>
     <color name="green_basic">#23B96B</color>
     <color name="green_light">#D9F4E5</color>
     <color name="green_dark">#18B661</color>
-    <color name="blue_light">#61A3FE</color>
     <!--show case 1-->
-    <color name="one_simplegraydark">#4413c294</color>
     <color name="pure_white">#ffffff</color>
     <color name="text_color">#383838</color>
     <color name="pure_black">#000000</color>
     <color name="white_300">#f9f9ff</color>
-    <!--shaow case 2-->
+    <!--show  case 2-->
     <color name="about_purple">#FF736bfb</color>
     <color name="about_text">#dad9ef</color>
     <color name="about_background">#f4f6fa</color>
-    <!--shaow case 3-->
-    <color name="login_background">#fafafa</color>
+    <!--show  case 3-->
     <color name="login_background2">#464b58</color>
     <color name="blue_login1">#008fff</color>
     <color name="blue_login2">#0372c9</color>
     <color name="shaow_black">#ff30343f</color>
     <color name="red_error_color">#e5697d</color>
+    <!--show case 4-->
+    <color name="slide_background">#eef2f1</color>
+    <color name="slide_background2">#f0f2f2</color>
+    <color name="slide_background3">#eceeed</color>
+    <color name="search_background">#f9e4e6e6</color>
+    <color name="icon_color">#66cf90</color>
+    <color name="base_color_sw3">#3dd684</color>
 
     <!---->
 </resources>

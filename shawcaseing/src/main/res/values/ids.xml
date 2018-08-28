@@ -25,4 +25,15 @@
     <item name="singin_layout" type="id" />
     <item name="tv_loginError" type="id" />
     <item name="singup_layout" type="id" />
+    <item name="box_archive" type="id" />
+    <item name="sent_maile" type="id" />
+    <item name="note_list" type="id" />
+    <item name="deleted_item" type="id" />
+    <item name="time_ago" type="id" />
+    <item name="user_role" type="id" />
+    <item name="sender_name" type="id" />
+    <item name="mail_description" type="id" />
+    <item name="iv_favortie" type="id" />
+    <item name="iv_sender_icon" type="id" />
+    <item name="contelayout_sw3" type="id" />
 </resources>

@@ -40,6 +40,9 @@
         <activity
             android:name=".ui.activity.SingUpActivity"
             android:theme="@style/AppTheme.NoActionBarWhite" />
+        <activity
+            android:name=".ui.activity.SlidePanleActivity"
+            android:theme="@style/AppTheme.NoActionBarWhite" />
     </application>
 
 

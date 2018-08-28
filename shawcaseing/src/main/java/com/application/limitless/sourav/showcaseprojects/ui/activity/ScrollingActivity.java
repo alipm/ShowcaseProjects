@@ -1,7 +1,6 @@
 package com.application.limitless.sourav.showcaseprojects.ui.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -10,7 +9,7 @@ import android.view.MenuItem;
 
 import com.application.limitless.sourav.showcaseprojects.R;
 import com.application.limitless.sourav.showcaseprojects.modle.dto.CLListItem;
-import com.application.limitless.sourav.showcaseprojects.ui.adapter.ShawcaseAdapter;
+import com.application.limitless.sourav.showcaseprojects.ui.adapter.ShowcaseAdapter;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.RecyclerDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ public class ScrollingActivity extends SBaseActivity {
         RecyclerView clRecyclerView=findViewById(R.id.rv_showcase_list);
         clRecyclerView.setPadding(5, 0, 0, 0);
         clRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        clRecyclerView.setAdapter(new ShawcaseAdapter(ScrollingActivity.this,customerList));
+        clRecyclerView.setAdapter(new ShowcaseAdapter(ScrollingActivity.this,customerList));
         clRecyclerView.addItemDecoration(new RecyclerDividerItemDecoration(this,RecyclerDividerItemDecoration.VERTICAL_LIST, getResources().getColor(R.color.gray_medium)));
         clRecyclerView.setHasFixedSize(true);
 

@@ -6,7 +6,6 @@ import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -17,22 +16,15 @@ import android.graphics.RectF;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.LayerDrawable;
-import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-
-import com.application.limitless.sourav.showcaseprojects.R;
 
 
 public class Utils {
@@ -178,6 +170,27 @@ public static void darkenStatusBar(Activity activity, int color) {
 
         GradientDrawable normalDrawable=new GradientDrawable();
         normalDrawable.setColor(normalColor);
+        normalDrawable.setCornerRadius(normalRounded);
+
+
+        GradientDrawable pressedDrawable=new GradientDrawable();
+        pressedDrawable.setCornerRadius(pressedRounded);
+        pressedDrawable.setColor(pressedColor);
+
+        StateListDrawable arrowImgStates = new StateListDrawable();
+        arrowImgStates.addState(new int[]{android.R.attr.state_pressed}, pressedDrawable);
+        arrowImgStates.addState(new int[]{android.R.attr.state_focused}, pressedDrawable);
+        arrowImgStates.addState(new int[]{android.R.attr.state_selected}, pressedDrawable);
+        arrowImgStates.addState(new int[]{}, normalDrawable);
+
+        return arrowImgStates;
+    }
+    public static  StateListDrawable getRoundStrokeDrawableListState(@ColorInt  int normalColor,float normalRounded, @ColorInt  int pressedColor,float pressedRounded,@ColorInt int strokeColor,int strokewidth)
+    {
+
+        GradientDrawable normalDrawable=new GradientDrawable();
+        normalDrawable.setColor(normalColor);
+        normalDrawable.setStroke(strokewidth,strokeColor);
         normalDrawable.setCornerRadius(normalRounded);
 
 

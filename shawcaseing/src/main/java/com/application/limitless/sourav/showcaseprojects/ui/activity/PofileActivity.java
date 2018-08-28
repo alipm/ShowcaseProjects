@@ -23,6 +23,7 @@ import com.application.limitless.sourav.showcaseprojects.R;
 import com.application.limitless.sourav.showcaseprojects.modle.dto.ProfileDataDto;
 import com.application.limitless.sourav.showcaseprojects.ui.adapter.ProfileGridAdapter;
 import com.application.limitless.sourav.showcaseprojects.ui.base.component.ShadowRectLayout;
+import com.application.limitless.sourav.showcaseprojects.ui.utils.CircleImageView;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.STextView;
 import com.application.limitless.sourav.showcaseprojects.ui.utils.Utils;
 
@@ -162,9 +163,9 @@ public class PofileActivity extends SBaseActivity implements View.OnClickListene
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.setPadding(0, 0, 0, 50);
 
-        ImageView imageRounded = new ImageView(this);
+        CircleImageView imageRounded = new CircleImageView(this);
         imageRounded.setLayoutParams(new LinearLayout.LayoutParams((int) (getScreenWidth() *0.3), (int) (getScreenWidth() *0.3)));
-        imageRounded.setImageResource(R.drawable.profile_man);
+        imageRounded.setImageResource(R.drawable.profile_0);
 
         ShadowRectLayout shadowRectLayout1=new ShadowRectLayout(this);
         shadowRectLayout1.setLayoutParams(new LinearLayout.LayoutParams((int) (getScreenWidth() *0.3), (int) (getScreenWidth() *0.3)));

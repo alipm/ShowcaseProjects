@@ -11,6 +11,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
+import android.media.ThumbnailUtils;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
@@ -269,6 +270,8 @@ public class ShadowRectLayout extends ViewGroup {
         if (imgDrawable > 0)
         {
             Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), imgDrawable);
+            bitmap = ThumbnailUtils.extractThumbnail(bitmap, getWidth(), getHeight());
+
             if (roundedBitmapDrawable == null)
                 roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(mContext.getResources(), bitmap);
 
